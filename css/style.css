@@ -2486,8 +2486,17 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     opacity: 1 !important;
   }
 
+  .lg-next,
+  .lg-prev {
+    display: block !important;
+  }
+
   .lg-prev {
     left: calc(100% - 135px);
+  }
+
+  .lg-toolbar .lg-close {
+    display: block !important;
   }
 }
 
@@ -2719,7 +2728,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding: 112px 15px 50px 15px;
     z-index: 109;
     opacity: 0;
-    background: rgba(255, 255, 255, 0.75);
+    background: rgb(255, 255, 255);
   }
 
   .menu__list {
