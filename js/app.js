@@ -2280,8 +2280,14 @@ PERFORMANCE OF THIS SOFTWARE.
             if (shareMenu) shareMenu.classList.remove("social-menu-active");
             if (wrap) wrap.classList.remove("wrap-active");
         }));
-        if (shareMenu) shareMenu.addEventListener("click", (function(e) {
-            shareMenu.classList.remove("social-menu-active");
+        let tl = document.querySelectorAll("#wrp .menu__item");
+        for (let i = 0; i < tl.length; i++) tl[i].addEventListener("click", (function() {
+            if (this.classList.contains("t_active")) this.classList.remove("t_active"); else {
+                tl.forEach((item => {
+                    if (item.classList.contains("t_active")) item.classList.remove("t_active");
+                }));
+                this.classList.add("t_active");
+            }
         }));
         window["FLS"] = true;
         isWebp();
