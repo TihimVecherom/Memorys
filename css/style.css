@@ -213,7 +213,7 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding-top: 349px;
+  padding-top: 77px;
 }
 
 .pictures-first {
@@ -420,7 +420,7 @@ html {
 
 .page__menu-wrapper {
   position: sticky;
-  top: 20px;
+  top: 40px;
   right: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -429,7 +429,10 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  min-height: calc(100vh - 20px);
+  min-height: calc(100vh - 80px);
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding-bottom: 20px;
   gap: 20px;
 }
