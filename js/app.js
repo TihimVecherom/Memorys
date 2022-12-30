@@ -1,18 +1,18 @@
 (() => {
     var __webpack_modules__ = {
-        97: function(module) {
+        97: function (module) {
             /**
  * lightgallery | 2.7.0 | October 9th 2022
  * http://www.lightgalleryjs.com/
  * Copyright (c) 2020 Sachin Neravath;
  * @license GPLv3
  */
-            !function(t, e) {
+            !function (t, e) {
                 true ? module.exports = e() : 0;
-            }(0, (function() {
+            }(0, (function () {
                 "use strict";
-                var t = function() {
-                    return (t = Object.assign || function(t) {
+                var t = function () {
+                    return (t = Object.assign || function (t) {
                         for (var e, i = 1, s = arguments.length; i < s; i++) for (var h in e = arguments[i]) Object.prototype.hasOwnProperty.call(e, h) && (t[h] = e[h]);
                         return t;
                     }).apply(this, arguments);
@@ -35,49 +35,49 @@
                         toggleThumbnails: "Toggle thumbnails"
                     }
                 }, i = "lgContainerResize", s = "lgUpdateSlides", h = "lgBeforeOpen", n = "lgBeforeSlide";
-                return function() {
+                return function () {
                     function o(t, e) {
-                        return this.thumbOuterWidth = 0, this.thumbTotalWidth = 0, this.translateX = 0, 
-                        this.thumbClickable = !1, this.core = t, this.$LG = e, this;
+                        return this.thumbOuterWidth = 0, this.thumbTotalWidth = 0, this.translateX = 0,
+                            this.thumbClickable = !1, this.core = t, this.$LG = e, this;
                     }
-                    return o.prototype.init = function() {
-                        this.settings = t(t({}, e), this.core.settings), this.thumbOuterWidth = 0, this.thumbTotalWidth = this.core.galleryItems.length * (this.settings.thumbWidth + this.settings.thumbMargin), 
-                        this.translateX = 0, this.setAnimateThumbStyles(), this.core.settings.allowMediaOverlap || (this.settings.toggleThumb = !1), 
-                        this.settings.thumbnail && (this.build(), this.settings.animateThumb ? (this.settings.enableThumbDrag && this.enableThumbDrag(), 
-                        this.settings.enableThumbSwipe && this.enableThumbSwipe(), this.thumbClickable = !1) : this.thumbClickable = !0, 
-                        this.toggleThumbBar(), this.thumbKeyPress());
-                    }, o.prototype.build = function() {
+                    return o.prototype.init = function () {
+                        this.settings = t(t({}, e), this.core.settings), this.thumbOuterWidth = 0, this.thumbTotalWidth = this.core.galleryItems.length * (this.settings.thumbWidth + this.settings.thumbMargin),
+                            this.translateX = 0, this.setAnimateThumbStyles(), this.core.settings.allowMediaOverlap || (this.settings.toggleThumb = !1),
+                            this.settings.thumbnail && (this.build(), this.settings.animateThumb ? (this.settings.enableThumbDrag && this.enableThumbDrag(),
+                                this.settings.enableThumbSwipe && this.enableThumbSwipe(), this.thumbClickable = !1) : this.thumbClickable = !0,
+                                this.toggleThumbBar(), this.thumbKeyPress());
+                    }, o.prototype.build = function () {
                         var t = this;
-                        this.setThumbMarkup(), this.manageActiveClassOnSlideChange(), this.$lgThumb.first().on("click.lg touchend.lg", (function(e) {
+                        this.setThumbMarkup(), this.manageActiveClassOnSlideChange(), this.$lgThumb.first().on("click.lg touchend.lg", (function (e) {
                             var i = t.$LG(e.target);
-                            i.hasAttribute("data-lg-item-id") && setTimeout((function() {
+                            i.hasAttribute("data-lg-item-id") && setTimeout((function () {
                                 if (t.thumbClickable && !t.core.lgBusy) {
                                     var e = parseInt(i.attr("data-lg-item-id"));
                                     t.core.slide(e, !1, !0, !1);
                                 }
                             }), 50);
-                        })), this.core.LGel.on(n + ".thumb", (function(e) {
+                        })), this.core.LGel.on(n + ".thumb", (function (e) {
                             var i = e.detail.index;
                             t.animateThumb(i);
-                        })), this.core.LGel.on(h + ".thumb", (function() {
+                        })), this.core.LGel.on(h + ".thumb", (function () {
                             t.thumbOuterWidth = t.core.outer.get().offsetWidth;
-                        })), this.core.LGel.on(s + ".thumb", (function() {
+                        })), this.core.LGel.on(s + ".thumb", (function () {
                             t.rebuildThumbnails();
-                        })), this.core.LGel.on(i + ".thumb", (function() {
-                            t.core.lgOpened && setTimeout((function() {
-                                t.thumbOuterWidth = t.core.outer.get().offsetWidth, t.animateThumb(t.core.index), 
-                                t.thumbOuterWidth = t.core.outer.get().offsetWidth;
+                        })), this.core.LGel.on(i + ".thumb", (function () {
+                            t.core.lgOpened && setTimeout((function () {
+                                t.thumbOuterWidth = t.core.outer.get().offsetWidth, t.animateThumb(t.core.index),
+                                    t.thumbOuterWidth = t.core.outer.get().offsetWidth;
                             }), 50);
                         }));
-                    }, o.prototype.setThumbMarkup = function() {
+                    }, o.prototype.setThumbMarkup = function () {
                         var t = "lg-thumb-outer ";
                         this.settings.alignThumbnails && (t += "lg-thumb-align-" + this.settings.alignThumbnails);
                         var e = '<div class="' + t + '">\n        <div class="lg-thumb lg-group">\n        </div>\n        </div>';
-                        this.core.outer.addClass("lg-has-thumb"), ".lg-components" === this.settings.appendThumbnailsTo ? this.core.$lgComponents.append(e) : this.core.outer.append(e), 
-                        this.$thumbOuter = this.core.outer.find(".lg-thumb-outer").first(), this.$lgThumb = this.core.outer.find(".lg-thumb").first(), 
-                        this.settings.animateThumb && this.core.outer.find(".lg-thumb").css("transition-duration", this.core.settings.speed + "ms").css("width", this.thumbTotalWidth + "px").css("position", "relative"), 
-                        this.setThumbItemHtml(this.core.galleryItems);
-                    }, o.prototype.enableThumbDrag = function() {
+                        this.core.outer.addClass("lg-has-thumb"), ".lg-components" === this.settings.appendThumbnailsTo ? this.core.$lgComponents.append(e) : this.core.outer.append(e),
+                            this.$thumbOuter = this.core.outer.find(".lg-thumb-outer").first(), this.$lgThumb = this.core.outer.find(".lg-thumb").first(),
+                            this.settings.animateThumb && this.core.outer.find(".lg-thumb").css("transition-duration", this.core.settings.speed + "ms").css("width", this.thumbTotalWidth + "px").css("position", "relative"),
+                            this.setThumbItemHtml(this.core.galleryItems);
+                    }, o.prototype.enableThumbDrag = function () {
                         var t = this, e = {
                             cords: {
                                 startX: 0,
@@ -89,17 +89,17 @@
                             endTime: new Date,
                             touchMoveTime: 0
                         }, i = !1;
-                        this.$thumbOuter.addClass("lg-grab"), this.core.outer.find(".lg-thumb").first().on("mousedown.lg.thumb", (function(s) {
-                            t.thumbTotalWidth > t.thumbOuterWidth && (s.preventDefault(), e.cords.startX = s.pageX, 
-                            e.startTime = new Date, t.thumbClickable = !1, i = !0, t.core.outer.get().scrollLeft += 1, 
-                            t.core.outer.get().scrollLeft -= 1, t.$thumbOuter.removeClass("lg-grab").addClass("lg-grabbing"));
-                        })), this.$LG(window).on("mousemove.lg.thumb.global" + this.core.lgId, (function(s) {
+                        this.$thumbOuter.addClass("lg-grab"), this.core.outer.find(".lg-thumb").first().on("mousedown.lg.thumb", (function (s) {
+                            t.thumbTotalWidth > t.thumbOuterWidth && (s.preventDefault(), e.cords.startX = s.pageX,
+                                e.startTime = new Date, t.thumbClickable = !1, i = !0, t.core.outer.get().scrollLeft += 1,
+                                t.core.outer.get().scrollLeft -= 1, t.$thumbOuter.removeClass("lg-grab").addClass("lg-grabbing"));
+                        })), this.$LG(window).on("mousemove.lg.thumb.global" + this.core.lgId, (function (s) {
                             t.core.lgOpened && i && (e.cords.endX = s.pageX, e = t.onThumbTouchMove(e));
-                        })), this.$LG(window).on("mouseup.lg.thumb.global" + this.core.lgId, (function() {
-                            t.core.lgOpened && (e.isMoved ? e = t.onThumbTouchEnd(e) : t.thumbClickable = !0, 
-                            i && (i = !1, t.$thumbOuter.removeClass("lg-grabbing").addClass("lg-grab")));
+                        })), this.$LG(window).on("mouseup.lg.thumb.global" + this.core.lgId, (function () {
+                            t.core.lgOpened && (e.isMoved ? e = t.onThumbTouchEnd(e) : t.thumbClickable = !0,
+                                i && (i = !1, t.$thumbOuter.removeClass("lg-grabbing").addClass("lg-grab")));
                         }));
-                    }, o.prototype.enableThumbSwipe = function() {
+                    }, o.prototype.enableThumbSwipe = function () {
                         var t = this, e = {
                             cords: {
                                 startX: 0,
@@ -111,95 +111,95 @@
                             endTime: new Date,
                             touchMoveTime: 0
                         };
-                        this.$lgThumb.on("touchstart.lg", (function(i) {
-                            t.thumbTotalWidth > t.thumbOuterWidth && (i.preventDefault(), e.cords.startX = i.targetTouches[0].pageX, 
-                            t.thumbClickable = !1, e.startTime = new Date);
-                        })), this.$lgThumb.on("touchmove.lg", (function(i) {
-                            t.thumbTotalWidth > t.thumbOuterWidth && (i.preventDefault(), e.cords.endX = i.targetTouches[0].pageX, 
-                            e = t.onThumbTouchMove(e));
-                        })), this.$lgThumb.on("touchend.lg", (function() {
+                        this.$lgThumb.on("touchstart.lg", (function (i) {
+                            t.thumbTotalWidth > t.thumbOuterWidth && (i.preventDefault(), e.cords.startX = i.targetTouches[0].pageX,
+                                t.thumbClickable = !1, e.startTime = new Date);
+                        })), this.$lgThumb.on("touchmove.lg", (function (i) {
+                            t.thumbTotalWidth > t.thumbOuterWidth && (i.preventDefault(), e.cords.endX = i.targetTouches[0].pageX,
+                                e = t.onThumbTouchMove(e));
+                        })), this.$lgThumb.on("touchend.lg", (function () {
                             e.isMoved ? e = t.onThumbTouchEnd(e) : t.thumbClickable = !0;
                         }));
-                    }, o.prototype.rebuildThumbnails = function() {
+                    }, o.prototype.rebuildThumbnails = function () {
                         var t = this;
-                        this.$thumbOuter.addClass("lg-rebuilding-thumbnails"), setTimeout((function() {
-                            t.thumbTotalWidth = t.core.galleryItems.length * (t.settings.thumbWidth + t.settings.thumbMargin), 
-                            t.$lgThumb.css("width", t.thumbTotalWidth + "px"), t.$lgThumb.empty(), t.setThumbItemHtml(t.core.galleryItems), 
-                            t.animateThumb(t.core.index);
-                        }), 50), setTimeout((function() {
+                        this.$thumbOuter.addClass("lg-rebuilding-thumbnails"), setTimeout((function () {
+                            t.thumbTotalWidth = t.core.galleryItems.length * (t.settings.thumbWidth + t.settings.thumbMargin),
+                                t.$lgThumb.css("width", t.thumbTotalWidth + "px"), t.$lgThumb.empty(), t.setThumbItemHtml(t.core.galleryItems),
+                                t.animateThumb(t.core.index);
+                        }), 50), setTimeout((function () {
                             t.$thumbOuter.removeClass("lg-rebuilding-thumbnails");
                         }), 200);
-                    }, o.prototype.setTranslate = function(t) {
+                    }, o.prototype.setTranslate = function (t) {
                         this.$lgThumb.css("transform", "translate3d(-" + t + "px, 0px, 0px)");
-                    }, o.prototype.getPossibleTransformX = function(t) {
-                        return t > this.thumbTotalWidth - this.thumbOuterWidth && (t = this.thumbTotalWidth - this.thumbOuterWidth), 
-                        t < 0 && (t = 0), t;
-                    }, o.prototype.animateThumb = function(t) {
+                    }, o.prototype.getPossibleTransformX = function (t) {
+                        return t > this.thumbTotalWidth - this.thumbOuterWidth && (t = this.thumbTotalWidth - this.thumbOuterWidth),
+                            t < 0 && (t = 0), t;
+                    }, o.prototype.animateThumb = function (t) {
                         if (this.$lgThumb.css("transition-duration", this.core.settings.speed + "ms"), this.settings.animateThumb) {
                             var e = 0;
                             switch (this.settings.currentPagerPosition) {
-                              case "left":
-                                e = 0;
-                                break;
+                                case "left":
+                                    e = 0;
+                                    break;
 
-                              case "middle":
-                                e = this.thumbOuterWidth / 2 - this.settings.thumbWidth / 2;
-                                break;
+                                case "middle":
+                                    e = this.thumbOuterWidth / 2 - this.settings.thumbWidth / 2;
+                                    break;
 
-                              case "right":
-                                e = this.thumbOuterWidth - this.settings.thumbWidth;
+                                case "right":
+                                    e = this.thumbOuterWidth - this.settings.thumbWidth;
                             }
-                            this.translateX = (this.settings.thumbWidth + this.settings.thumbMargin) * t - 1 - e, 
-                            this.translateX > this.thumbTotalWidth - this.thumbOuterWidth && (this.translateX = this.thumbTotalWidth - this.thumbOuterWidth), 
-                            this.translateX < 0 && (this.translateX = 0), this.setTranslate(this.translateX);
+                            this.translateX = (this.settings.thumbWidth + this.settings.thumbMargin) * t - 1 - e,
+                                this.translateX > this.thumbTotalWidth - this.thumbOuterWidth && (this.translateX = this.thumbTotalWidth - this.thumbOuterWidth),
+                                this.translateX < 0 && (this.translateX = 0), this.setTranslate(this.translateX);
                         }
-                    }, o.prototype.onThumbTouchMove = function(t) {
-                        return t.newTranslateX = this.translateX, t.isMoved = !0, t.touchMoveTime = (new Date).valueOf(), 
-                        t.newTranslateX -= t.cords.endX - t.cords.startX, t.newTranslateX = this.getPossibleTransformX(t.newTranslateX), 
-                        this.setTranslate(t.newTranslateX), this.$thumbOuter.addClass("lg-dragging"), t;
-                    }, o.prototype.onThumbTouchEnd = function(t) {
+                    }, o.prototype.onThumbTouchMove = function (t) {
+                        return t.newTranslateX = this.translateX, t.isMoved = !0, t.touchMoveTime = (new Date).valueOf(),
+                            t.newTranslateX -= t.cords.endX - t.cords.startX, t.newTranslateX = this.getPossibleTransformX(t.newTranslateX),
+                            this.setTranslate(t.newTranslateX), this.$thumbOuter.addClass("lg-dragging"), t;
+                    }, o.prototype.onThumbTouchEnd = function (t) {
                         t.isMoved = !1, t.endTime = new Date, this.$thumbOuter.removeClass("lg-dragging");
                         var e = t.endTime.valueOf() - t.startTime.valueOf(), i = t.cords.endX - t.cords.startX, s = Math.abs(i) / e;
-                        return s > .15 && t.endTime.valueOf() - t.touchMoveTime < 30 ? ((s += 1) > 2 && (s += 1), 
-                        s += s * (Math.abs(i) / this.thumbOuterWidth), this.$lgThumb.css("transition-duration", Math.min(s - 1, 2) + "settings"), 
-                        i *= s, this.translateX = this.getPossibleTransformX(this.translateX - i), this.setTranslate(this.translateX)) : this.translateX = t.newTranslateX, 
-                        Math.abs(t.cords.endX - t.cords.startX) < this.settings.thumbnailSwipeThreshold && (this.thumbClickable = !0), 
-                        t;
-                    }, o.prototype.getThumbHtml = function(t, e) {
+                        return s > .15 && t.endTime.valueOf() - t.touchMoveTime < 30 ? ((s += 1) > 2 && (s += 1),
+                            s += s * (Math.abs(i) / this.thumbOuterWidth), this.$lgThumb.css("transition-duration", Math.min(s - 1, 2) + "settings"),
+                            i *= s, this.translateX = this.getPossibleTransformX(this.translateX - i), this.setTranslate(this.translateX)) : this.translateX = t.newTranslateX,
+                            Math.abs(t.cords.endX - t.cords.startX) < this.settings.thumbnailSwipeThreshold && (this.thumbClickable = !0),
+                            t;
+                    }, o.prototype.getThumbHtml = function (t, e) {
                         var i, s = this.core.galleryItems[e].__slideVideoInfo || {};
-                        return i = s.youtube && this.settings.loadYouTubeThumbnail ? "//img.youtube.com/vi/" + s.youtube[1] + "/" + this.settings.youTubeThumbSize + ".jpg" : t, 
-                        '<div data-lg-item-id="' + e + '" class="lg-thumb-item ' + (e === this.core.index ? " active" : "") + '" \n        style="width:' + this.settings.thumbWidth + "px; height: " + this.settings.thumbHeight + ";\n            margin-right: " + this.settings.thumbMargin + 'px;">\n            <img data-lg-item-id="' + e + '" src="' + i + '" />\n        </div>';
-                    }, o.prototype.getThumbItemHtml = function(t) {
+                        return i = s.youtube && this.settings.loadYouTubeThumbnail ? "//img.youtube.com/vi/" + s.youtube[1] + "/" + this.settings.youTubeThumbSize + ".jpg" : t,
+                            '<div data-lg-item-id="' + e + '" class="lg-thumb-item ' + (e === this.core.index ? " active" : "") + '" \n        style="width:' + this.settings.thumbWidth + "px; height: " + this.settings.thumbHeight + ";\n            margin-right: " + this.settings.thumbMargin + 'px;">\n            <img data-lg-item-id="' + e + '" src="' + i + '" />\n        </div>';
+                    }, o.prototype.getThumbItemHtml = function (t) {
                         for (var e = "", i = 0; i < t.length; i++) e += this.getThumbHtml(t[i].thumb, i);
                         return e;
-                    }, o.prototype.setThumbItemHtml = function(t) {
+                    }, o.prototype.setThumbItemHtml = function (t) {
                         var e = this.getThumbItemHtml(t);
                         this.$lgThumb.html(e);
-                    }, o.prototype.setAnimateThumbStyles = function() {
+                    }, o.prototype.setAnimateThumbStyles = function () {
                         this.settings.animateThumb && this.core.outer.addClass("lg-animate-thumb");
-                    }, o.prototype.manageActiveClassOnSlideChange = function() {
+                    }, o.prototype.manageActiveClassOnSlideChange = function () {
                         var t = this;
-                        this.core.LGel.on(n + ".thumb", (function(e) {
+                        this.core.LGel.on(n + ".thumb", (function (e) {
                             var i = t.core.outer.find(".lg-thumb-item"), s = e.detail.index;
                             i.removeClass("active"), i.eq(s).addClass("active");
                         }));
-                    }, o.prototype.toggleThumbBar = function() {
+                    }, o.prototype.toggleThumbBar = function () {
                         var t = this;
-                        this.settings.toggleThumb && (this.core.outer.addClass("lg-can-toggle"), this.core.$toolbar.append('<button type="button" aria-label="' + this.settings.thumbnailPluginStrings.toggleThumbnails + '" class="lg-toggle-thumb lg-icon"></button>'), 
-                        this.core.outer.find(".lg-toggle-thumb").first().on("click.lg", (function() {
-                            t.core.outer.toggleClass("lg-components-open");
-                        })));
-                    }, o.prototype.thumbKeyPress = function() {
+                        this.settings.toggleThumb && (this.core.outer.addClass("lg-can-toggle"), this.core.$toolbar.append('<button type="button" aria-label="' + this.settings.thumbnailPluginStrings.toggleThumbnails + '" class="lg-toggle-thumb lg-icon"></button>'),
+                            this.core.outer.find(".lg-toggle-thumb").first().on("click.lg", (function () {
+                                t.core.outer.toggleClass("lg-components-open");
+                            })));
+                    }, o.prototype.thumbKeyPress = function () {
                         var t = this;
-                        this.$LG(window).on("keydown.lg.thumb.global" + this.core.lgId, (function(e) {
-                            t.core.lgOpened && t.settings.toggleThumb && (38 === e.keyCode ? (e.preventDefault(), 
-                            t.core.outer.addClass("lg-components-open")) : 40 === e.keyCode && (e.preventDefault(), 
-                            t.core.outer.removeClass("lg-components-open")));
+                        this.$LG(window).on("keydown.lg.thumb.global" + this.core.lgId, (function (e) {
+                            t.core.lgOpened && t.settings.toggleThumb && (38 === e.keyCode ? (e.preventDefault(),
+                                t.core.outer.addClass("lg-components-open")) : 40 === e.keyCode && (e.preventDefault(),
+                                    t.core.outer.removeClass("lg-components-open")));
                         }));
-                    }, o.prototype.destroy = function() {
-                        this.settings.thumbnail && (this.$LG(window).off(".lg.thumb.global" + this.core.lgId), 
-                        this.core.LGel.off(".lg.thumb"), this.core.LGel.off(".thumb"), this.$thumbOuter.remove(), 
-                        this.core.outer.removeClass("lg-has-thumb"));
+                    }, o.prototype.destroy = function () {
+                        this.settings.thumbnail && (this.$LG(window).off(".lg.thumb.global" + this.core.lgId),
+                            this.core.LGel.off(".lg.thumb"), this.core.LGel.off(".thumb"), this.$thumbOuter.remove(),
+                            this.core.outer.removeClass("lg-has-thumb"));
                     }, o;
                 }();
             }));
@@ -221,12 +221,12 @@
         function isWebp() {
             function testWebP(callback) {
                 let webP = new Image;
-                webP.onload = webP.onerror = function() {
+                webP.onload = webP.onerror = function () {
                     callback(2 == webP.height);
                 };
                 webP.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
             }
-            testWebP((function(support) {
+            testWebP((function (support) {
                 let className = true === support ? "webp" : "no-webp";
                 document.documentElement.classList.add(className);
             }));
@@ -303,13 +303,13 @@
         function spollers() {
             const spollersArray = document.querySelectorAll("[data-spollers]");
             if (spollersArray.length > 0) {
-                const spollersRegular = Array.from(spollersArray).filter((function(item, index, self) {
+                const spollersRegular = Array.from(spollersArray).filter((function (item, index, self) {
                     return !item.dataset.spollers.split(",")[0];
                 }));
                 if (spollersRegular.length) initSpollers(spollersRegular);
                 let mdQueriesArray = dataMediaQueries(spollersArray, "spollers");
                 if (mdQueriesArray && mdQueriesArray.length) mdQueriesArray.forEach((mdQueriesItem => {
-                    mdQueriesItem.matchMedia.addEventListener("change", (function() {
+                    mdQueriesItem.matchMedia.addEventListener("change", (function () {
                         initSpollers(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
                     }));
                     initSpollers(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
@@ -367,7 +367,7 @@
                     }
                 }
                 const spollersClose = document.querySelectorAll("[data-spoller-close]");
-                if (spollersClose.length) document.addEventListener("click", (function(e) {
+                if (spollersClose.length) document.addEventListener("click", (function (e) {
                     const el = e.target;
                     if (!el.closest("[data-spollers]")) spollersClose.forEach((spollerClose => {
                         const spollersBlock = spollerClose.closest("[data-spollers]");
@@ -381,12 +381,12 @@
             }
         }
         function uniqArray(array) {
-            return array.filter((function(item, index, self) {
+            return array.filter((function (item, index, self) {
                 return self.indexOf(item) === index;
             }));
         }
         function dataMediaQueries(array, dataSetValue) {
-            const media = Array.from(array).filter((function(item, index, self) {
+            const media = Array.from(array).filter((function (item, index, self) {
                 if (item.dataset[dataSetValue]) return item.dataset[dataSetValue].split(",")[0];
             }));
             if (media.length) {
@@ -400,7 +400,7 @@
                     breakpoint.item = item;
                     breakpointsArray.push(breakpoint);
                 }));
-                let mdQueries = breakpointsArray.map((function(item) {
+                let mdQueries = breakpointsArray.map((function (item) {
                     return "(" + item.type + "-width: " + item.value + "px)," + item.value + "," + item.type;
                 }));
                 mdQueries = uniqArray(mdQueries);
@@ -411,7 +411,7 @@
                         const mediaBreakpoint = paramsArray[1];
                         const mediaType = paramsArray[2];
                         const matchMedia = window.matchMedia(paramsArray[0]);
-                        const itemsArray = breakpointsArray.filter((function(item) {
+                        const itemsArray = breakpointsArray.filter((function (item) {
                             if (item.value === mediaBreakpoint && item.type === mediaType) return true;
                         }));
                         mdQueriesArray.push({
@@ -427,7 +427,7 @@
         setTimeout((() => {
             if (addWindowScrollEvent) {
                 let windowScroll = new Event("windowScroll");
-                window.addEventListener("scroll", (function(e) {
+                window.addEventListener("scroll", (function (e) {
                     document.dispatchEvent(windowScroll);
                 }));
             }
@@ -452,7 +452,7 @@ LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
 OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
-        var __assign = function() {
+        var __assign = function () {
             __assign = Object.assign || function __assign(t) {
                 for (var s, i = 1, n = arguments.length; i < n; i++) {
                     s = arguments[i];
@@ -465,8 +465,8 @@ PERFORMANCE OF THIS SOFTWARE.
         function __spreadArrays() {
             for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
             var r = Array(s), k = 0;
-            for (i = 0; i < il; i++) for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, 
-            k++) r[k] = a[j];
+            for (i = 0; i < il; i++) for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++,
+                k++) r[k] = a[j];
             return r;
         }
         var lGEvents = {
@@ -561,8 +561,8 @@ PERFORMANCE OF THIS SOFTWARE.
             exThumbImage: "",
             isMobile: void 0,
             mobileSettings: {
-                controls: false,
-                showCloseIcon: false,
+                controls: true,
+                showCloseIcon: true,
                 download: false
             },
             plugins: [],
@@ -576,7 +576,7 @@ PERFORMANCE OF THIS SOFTWARE.
             }
         };
         function initLgPolyfills() {
-            (function() {
+            (function () {
                 if ("function" === typeof window.CustomEvent) return false;
                 function CustomEvent(event, params) {
                     params = params || {
@@ -590,37 +590,37 @@ PERFORMANCE OF THIS SOFTWARE.
                 }
                 window.CustomEvent = CustomEvent;
             })();
-            (function() {
+            (function () {
                 if (!Element.prototype.matches) Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
             })();
         }
-        var lgQuery = function() {
+        var lgQuery = function () {
             function lgQuery(selector) {
-                this.cssVenderPrefixes = [ "TransitionDuration", "TransitionTimingFunction", "Transform", "Transition" ];
+                this.cssVenderPrefixes = ["TransitionDuration", "TransitionTimingFunction", "Transform", "Transition"];
                 this.selector = this._getSelector(selector);
                 this.firstElement = this._getFirstEl();
                 return this;
             }
-            lgQuery.generateUUID = function() {
-                return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (function(c) {
+            lgQuery.generateUUID = function () {
+                return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (function (c) {
                     var r = 16 * Math.random() | 0, v = "x" == c ? r : 3 & r | 8;
                     return v.toString(16);
                 }));
             };
-            lgQuery.prototype._getSelector = function(selector, context) {
+            lgQuery.prototype._getSelector = function (selector, context) {
                 if (void 0 === context) context = document;
                 if ("string" !== typeof selector) return selector;
                 context = context || document;
                 var fl = selector.substring(0, 1);
                 if ("#" === fl) return context.querySelector(selector); else return context.querySelectorAll(selector);
             };
-            lgQuery.prototype._each = function(func) {
+            lgQuery.prototype._each = function (func) {
                 if (!this.selector) return this;
                 if (void 0 !== this.selector.length) [].forEach.call(this.selector, func); else func(this.selector, 0);
                 return this;
             };
-            lgQuery.prototype._setCssVendorPrefix = function(el, cssProperty, value) {
-                var property = cssProperty.replace(/-([a-z])/gi, (function(s, group1) {
+            lgQuery.prototype._setCssVendorPrefix = function (el, cssProperty, value) {
+                var property = cssProperty.replace(/-([a-z])/gi, (function (s, group1) {
                     return group1.toUpperCase();
                 }));
                 if (-1 !== this.cssVenderPrefixes.indexOf(property)) {
@@ -631,52 +631,52 @@ PERFORMANCE OF THIS SOFTWARE.
                     el.style["o" + property] = value;
                 } else el.style[property] = value;
             };
-            lgQuery.prototype._getFirstEl = function() {
+            lgQuery.prototype._getFirstEl = function () {
                 if (this.selector && void 0 !== this.selector.length) return this.selector[0]; else return this.selector;
             };
-            lgQuery.prototype.isEventMatched = function(event, eventName) {
+            lgQuery.prototype.isEventMatched = function (event, eventName) {
                 var eventNamespace = eventName.split(".");
-                return event.split(".").filter((function(e) {
+                return event.split(".").filter((function (e) {
                     return e;
-                })).every((function(e) {
+                })).every((function (e) {
                     return -1 !== eventNamespace.indexOf(e);
                 }));
             };
-            lgQuery.prototype.attr = function(attr, value) {
+            lgQuery.prototype.attr = function (attr, value) {
                 if (void 0 === value) {
                     if (!this.firstElement) return "";
                     return this.firstElement.getAttribute(attr);
                 }
-                this._each((function(el) {
+                this._each((function (el) {
                     el.setAttribute(attr, value);
                 }));
                 return this;
             };
-            lgQuery.prototype.find = function(selector) {
+            lgQuery.prototype.find = function (selector) {
                 return $LG(this._getSelector(selector, this.selector));
             };
-            lgQuery.prototype.first = function() {
+            lgQuery.prototype.first = function () {
                 if (this.selector && void 0 !== this.selector.length) return $LG(this.selector[0]); else return $LG(this.selector);
             };
-            lgQuery.prototype.eq = function(index) {
+            lgQuery.prototype.eq = function (index) {
                 return $LG(this.selector[index]);
             };
-            lgQuery.prototype.parent = function() {
+            lgQuery.prototype.parent = function () {
                 return $LG(this.selector.parentElement);
             };
-            lgQuery.prototype.get = function() {
+            lgQuery.prototype.get = function () {
                 return this._getFirstEl();
             };
-            lgQuery.prototype.removeAttr = function(attributes) {
+            lgQuery.prototype.removeAttr = function (attributes) {
                 var attrs = attributes.split(" ");
-                this._each((function(el) {
-                    attrs.forEach((function(attr) {
+                this._each((function (el) {
+                    attrs.forEach((function (attr) {
                         return el.removeAttribute(attr);
                     }));
                 }));
                 return this;
             };
-            lgQuery.prototype.wrap = function(className) {
+            lgQuery.prototype.wrap = function (className) {
                 if (!this.firstElement) return this;
                 var wrapper = document.createElement("div");
                 wrapper.className = className;
@@ -685,67 +685,67 @@ PERFORMANCE OF THIS SOFTWARE.
                 wrapper.appendChild(this.firstElement);
                 return this;
             };
-            lgQuery.prototype.addClass = function(classNames) {
+            lgQuery.prototype.addClass = function (classNames) {
                 if (void 0 === classNames) classNames = "";
-                this._each((function(el) {
-                    classNames.split(" ").forEach((function(className) {
+                this._each((function (el) {
+                    classNames.split(" ").forEach((function (className) {
                         if (className) el.classList.add(className);
                     }));
                 }));
                 return this;
             };
-            lgQuery.prototype.removeClass = function(classNames) {
-                this._each((function(el) {
-                    classNames.split(" ").forEach((function(className) {
+            lgQuery.prototype.removeClass = function (classNames) {
+                this._each((function (el) {
+                    classNames.split(" ").forEach((function (className) {
                         if (className) el.classList.remove(className);
                     }));
                 }));
                 return this;
             };
-            lgQuery.prototype.hasClass = function(className) {
+            lgQuery.prototype.hasClass = function (className) {
                 if (!this.firstElement) return false;
                 return this.firstElement.classList.contains(className);
             };
-            lgQuery.prototype.hasAttribute = function(attribute) {
+            lgQuery.prototype.hasAttribute = function (attribute) {
                 if (!this.firstElement) return false;
                 return this.firstElement.hasAttribute(attribute);
             };
-            lgQuery.prototype.toggleClass = function(className) {
+            lgQuery.prototype.toggleClass = function (className) {
                 if (!this.firstElement) return this;
                 if (this.hasClass(className)) this.removeClass(className); else this.addClass(className);
                 return this;
             };
-            lgQuery.prototype.css = function(property, value) {
+            lgQuery.prototype.css = function (property, value) {
                 var _this = this;
-                this._each((function(el) {
+                this._each((function (el) {
                     _this._setCssVendorPrefix(el, property, value);
                 }));
                 return this;
             };
-            lgQuery.prototype.on = function(events, listener) {
+            lgQuery.prototype.on = function (events, listener) {
                 var _this = this;
                 if (!this.selector) return this;
-                events.split(" ").forEach((function(event) {
+                events.split(" ").forEach((function (event) {
                     if (!Array.isArray(lgQuery.eventListeners[event])) lgQuery.eventListeners[event] = [];
                     lgQuery.eventListeners[event].push(listener);
                     _this.selector.addEventListener(event.split(".")[0], listener);
                 }));
                 return this;
             };
-            lgQuery.prototype.once = function(event, listener) {
+            lgQuery.prototype.once = function (event, listener) {
                 var _this = this;
-                this.on(event, (function() {
+                this.on(event, (function () {
                     _this.off(event);
                     listener(event);
                 }));
                 return this;
             };
-            lgQuery.prototype.off = function(event) {
+            lgQuery.prototype.off = function (event) {
                 var _this = this;
                 if (!this.selector) return this;
-                Object.keys(lgQuery.eventListeners).forEach((function(eventName) {
+                Object.keys(lgQuery.eventListeners).forEach((function (eventName) {
                     if (_this.isEventMatched(event, eventName)) {
-                        lgQuery.eventListeners[eventName].forEach((function(listener) {
+                        lgQuery.eventListeners[eventName].forEach((function (listener) {
                             _this.selector.removeEventListener(eventName.split(".")[0], listener);
                         }));
                         lgQuery.eventListeners[eventName] = [];
@@ -753,7 +753,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 }));
                 return this;
             };
-            lgQuery.prototype.trigger = function(event, detail) {
+            lgQuery.prototype.trigger = function (event, detail) {
                 if (!this.firstElement) return this;
                 var customEvent = new CustomEvent(event.split(".")[0], {
                     detail: detail || null
@@ -761,64 +761,64 @@ PERFORMANCE OF THIS SOFTWARE.
                 this.firstElement.dispatchEvent(customEvent);
                 return this;
             };
-            lgQuery.prototype.load = function(url) {
+            lgQuery.prototype.load = function (url) {
                 var _this = this;
-                fetch(url).then((function(res) {
+                fetch(url).then((function (res) {
                     return res.text();
-                })).then((function(html) {
+                })).then((function (html) {
                     _this.selector.innerHTML = html;
                 }));
                 return this;
             };
-            lgQuery.prototype.html = function(html) {
+            lgQuery.prototype.html = function (html) {
                 if (void 0 === html) {
                     if (!this.firstElement) return "";
                     return this.firstElement.innerHTML;
                 }
-                this._each((function(el) {
+                this._each((function (el) {
                     el.innerHTML = html;
                 }));
                 return this;
             };
-            lgQuery.prototype.append = function(html) {
-                this._each((function(el) {
+            lgQuery.prototype.append = function (html) {
+                this._each((function (el) {
                     if ("string" === typeof html) el.insertAdjacentHTML("beforeend", html); else el.appendChild(html);
                 }));
                 return this;
             };
-            lgQuery.prototype.prepend = function(html) {
-                this._each((function(el) {
+            lgQuery.prototype.prepend = function (html) {
+                this._each((function (el) {
                     el.insertAdjacentHTML("afterbegin", html);
                 }));
                 return this;
             };
-            lgQuery.prototype.remove = function() {
-                this._each((function(el) {
+            lgQuery.prototype.remove = function () {
+                this._each((function (el) {
                     el.parentNode.removeChild(el);
                 }));
                 return this;
             };
-            lgQuery.prototype.empty = function() {
-                this._each((function(el) {
+            lgQuery.prototype.empty = function () {
+                this._each((function (el) {
                     el.innerHTML = "";
                 }));
                 return this;
             };
-            lgQuery.prototype.scrollTop = function(scrollTop) {
+            lgQuery.prototype.scrollTop = function (scrollTop) {
                 if (void 0 !== scrollTop) {
                     document.body.scrollTop = scrollTop;
                     document.documentElement.scrollTop = scrollTop;
                     return this;
                 } else return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
             };
-            lgQuery.prototype.scrollLeft = function(scrollLeft) {
+            lgQuery.prototype.scrollLeft = function (scrollLeft) {
                 if (void 0 !== scrollLeft) {
                     document.body.scrollLeft = scrollLeft;
                     document.documentElement.scrollLeft = scrollLeft;
                     return this;
                 } else return window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0;
             };
-            lgQuery.prototype.offset = function() {
+            lgQuery.prototype.offset = function () {
                 if (!this.firstElement) return {
                     left: 0,
                     top: 0
@@ -830,15 +830,15 @@ PERFORMANCE OF THIS SOFTWARE.
                     top: rect.top + this.scrollTop()
                 };
             };
-            lgQuery.prototype.style = function() {
+            lgQuery.prototype.style = function () {
                 if (!this.firstElement) return {};
                 return this.firstElement.currentStyle || window.getComputedStyle(this.firstElement);
             };
-            lgQuery.prototype.width = function() {
+            lgQuery.prototype.width = function () {
                 var style = this.style();
                 return this.firstElement.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
             };
-            lgQuery.prototype.height = function() {
+            lgQuery.prototype.height = function () {
                 var style = this.style();
                 return this.firstElement.clientHeight - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom);
             };
@@ -849,18 +849,18 @@ PERFORMANCE OF THIS SOFTWARE.
             initLgPolyfills();
             return new lgQuery(selector);
         }
-        var defaultDynamicOptions = [ "src", "sources", "subHtml", "subHtmlUrl", "html", "video", "poster", "slideName", "responsive", "srcset", "sizes", "iframe", "downloadUrl", "download", "width", "facebookShareUrl", "tweetText", "iframeTitle", "twitterShareUrl", "pinterestShareUrl", "pinterestText", "fbHtml", "disqusIdentifier", "disqusUrl" ];
+        var defaultDynamicOptions = ["src", "sources", "subHtml", "subHtmlUrl", "html", "video", "poster", "slideName", "responsive", "srcset", "sizes", "iframe", "downloadUrl", "download", "width", "facebookShareUrl", "tweetText", "iframeTitle", "twitterShareUrl", "pinterestShareUrl", "pinterestText", "fbHtml", "disqusIdentifier", "disqusUrl"];
         function convertToData(attr) {
             if ("href" === attr) return "src";
             attr = attr.replace("data-", "");
             attr = attr.charAt(0).toLowerCase() + attr.slice(1);
-            attr = attr.replace(/-([a-z])/g, (function(g) {
+            attr = attr.replace(/-([a-z])/g, (function (g) {
                 return g[1].toUpperCase();
             }));
             return attr;
         }
         var utils = {
-            getSize: function(el, container, spacing, defaultLgSize) {
+            getSize: function (el, container, spacing, defaultLgSize) {
                 if (void 0 === spacing) spacing = 0;
                 var LGel = $LG(el);
                 var lgSize = LGel.attr("data-lg-size") || defaultLgSize;
@@ -891,7 +891,7 @@ PERFORMANCE OF THIS SOFTWARE.
                     height: height * ratio
                 };
             },
-            getTransform: function(el, container, top, bottom, imageSize) {
+            getTransform: function (el, container, top, bottom, imageSize) {
                 if (!imageSize) return;
                 var LGel = $LG(el).find("img").first();
                 if (!LGel.get()) return;
@@ -908,20 +908,20 @@ PERFORMANCE OF THIS SOFTWARE.
                 var transform = "translate3d(" + (x *= -1) + "px, " + (y *= -1) + "px, 0) scale3d(" + scX + ", " + scY + ", 1)";
                 return transform;
             },
-            getIframeMarkup: function(iframeWidth, iframeHeight, iframeMaxWidth, iframeMaxHeight, src, iframeTitle) {
+            getIframeMarkup: function (iframeWidth, iframeHeight, iframeMaxWidth, iframeMaxHeight, src, iframeTitle) {
                 var title = iframeTitle ? 'title="' + iframeTitle + '"' : "";
                 return '<div class="lg-video-cont lg-has-iframe" style="width:' + iframeWidth + "; max-width:" + iframeMaxWidth + "; height: " + iframeHeight + "; max-height:" + iframeMaxHeight + '">\n                    <iframe class="lg-object" frameborder="0" ' + title + ' src="' + src + '"  allowfullscreen="true"></iframe>\n                </div>';
             },
-            getImgMarkup: function(index, src, altAttr, srcset, sizes, sources) {
+            getImgMarkup: function (index, src, altAttr, srcset, sizes, sources) {
                 var srcsetAttr = srcset ? 'srcset="' + srcset + '"' : "";
                 var sizesAttr = sizes ? 'sizes="' + sizes + '"' : "";
                 var imgMarkup = "<img " + altAttr + " " + srcsetAttr + "  " + sizesAttr + ' class="lg-object lg-image" data-index="' + index + '" src="' + src + '" />';
                 var sourceTag = "";
                 if (sources) {
                     var sourceObj = "string" === typeof sources ? JSON.parse(sources) : sources;
-                    sourceTag = sourceObj.map((function(source) {
+                    sourceTag = sourceObj.map((function (source) {
                         var attrs = "";
-                        Object.keys(source).forEach((function(key) {
+                        Object.keys(source).forEach((function (key) {
                             attrs += " " + key + '="' + source[key] + '"';
                         }));
                         return "<source " + attrs + "></source>";
@@ -929,7 +929,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 }
                 return "" + sourceTag + imgMarkup;
             },
-            getResponsiveSrc: function(srcItms) {
+            getResponsiveSrc: function (srcItms) {
                 var rsWidth = [];
                 var rsSrc = [];
                 var src = "";
@@ -946,29 +946,29 @@ PERFORMANCE OF THIS SOFTWARE.
                 }
                 return src;
             },
-            isImageLoaded: function(img) {
+            isImageLoaded: function (img) {
                 if (!img) return false;
                 if (!img.complete) return false;
                 if (0 === img.naturalWidth) return false;
                 return true;
             },
-            getVideoPosterMarkup: function(_poster, dummyImg, videoContStyle, playVideoString, _isVideo) {
+            getVideoPosterMarkup: function (_poster, dummyImg, videoContStyle, playVideoString, _isVideo) {
                 var videoClass = "";
                 if (_isVideo && _isVideo.youtube) videoClass = "lg-has-youtube"; else if (_isVideo && _isVideo.vimeo) videoClass = "lg-has-vimeo"; else videoClass = "lg-has-html5";
                 return '<div class="lg-video-cont ' + videoClass + '" style="' + videoContStyle + '">\n                <div class="lg-video-play-button">\n                <svg\n                    viewBox="0 0 20 20"\n                    preserveAspectRatio="xMidYMid"\n                    focusable="false"\n                    aria-labelledby="' + playVideoString + '"\n                    role="img"\n                    class="lg-video-play-icon"\n                >\n                    <title>' + playVideoString + '</title>\n                    <polygon class="lg-video-play-icon-inner" points="1,0 20,10 1,20"></polygon>\n                </svg>\n                <svg class="lg-video-play-icon-bg" viewBox="0 0 50 50" focusable="false">\n                    <circle cx="50%" cy="50%" r="20"></circle></svg>\n                <svg class="lg-video-play-icon-circle" viewBox="0 0 50 50" focusable="false">\n                    <circle cx="50%" cy="50%" r="20"></circle>\n                </svg>\n            </div>\n            ' + (dummyImg || "") + '\n            <img class="lg-object lg-video-poster" src="' + _poster + '" />\n        </div>';
             },
-            getFocusableElements: function(container) {
+            getFocusableElements: function (container) {
                 var elements = container.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
-                var visibleElements = [].filter.call(elements, (function(element) {
+                var visibleElements = [].filter.call(elements, (function (element) {
                     var style = window.getComputedStyle(element);
                     return "none" !== style.display && "hidden" !== style.visibility;
                 }));
                 return visibleElements;
             },
-            getDynamicOptions: function(items, extraProps, getCaptionFromTitleOrAlt, exThumbImage) {
+            getDynamicOptions: function (items, extraProps, getCaptionFromTitleOrAlt, exThumbImage) {
                 var dynamicElements = [];
                 var availableDynamicOptions = __spreadArrays(defaultDynamicOptions, extraProps);
-                [].forEach.call(items, (function(item) {
+                [].forEach.call(items, (function (item) {
                     var dynamicEl = {};
                     for (var i = 0; i < item.attributes.length; i++) {
                         var attr = item.attributes[i];
@@ -990,10 +990,10 @@ PERFORMANCE OF THIS SOFTWARE.
                 }));
                 return dynamicElements;
             },
-            isMobile: function() {
+            isMobile: function () {
                 return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             },
-            isVideo: function(src, isHTML5VIdeo, index) {
+            isVideo: function (src, isHTML5VIdeo, index) {
                 if (!src) if (isHTML5VIdeo) return {
                     html5: true
                 }; else {
@@ -1013,7 +1013,7 @@ PERFORMANCE OF THIS SOFTWARE.
             }
         };
         var lgId = 0;
-        var LightGallery = function() {
+        var LightGallery = function () {
             function LightGallery(element, options) {
                 this.lgOpened = false;
                 this.index = 0;
@@ -1043,14 +1043,14 @@ PERFORMANCE OF THIS SOFTWARE.
                 this.validateLicense();
                 return this;
             }
-            LightGallery.prototype.generateSettings = function(options) {
+            LightGallery.prototype.generateSettings = function (options) {
                 this.settings = __assign(__assign({}, lightGalleryCoreSettings), options);
                 if (this.settings.isMobile && "function" === typeof this.settings.isMobile ? this.settings.isMobile() : utils.isMobile()) {
                     var mobileSettings = __assign(__assign({}, this.settings.mobileSettings), this.settings.mobileSettings);
                     this.settings = __assign(__assign({}, this.settings), mobileSettings);
                 }
             };
-            LightGallery.prototype.normalizeSettings = function() {
+            LightGallery.prototype.normalizeSettings = function () {
                 if (this.settings.slideEndAnimation) this.settings.hideControlOnEnd = false;
                 if (!this.settings.closable) this.settings.swipeToClose = false;
                 this.zoomFromOrigin = this.settings.zoomFromOrigin;
@@ -1058,7 +1058,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 if (!this.settings.container) this.settings.container = document.body;
                 this.settings.preload = Math.min(this.settings.preload, this.galleryItems.length);
             };
-            LightGallery.prototype.init = function() {
+            LightGallery.prototype.init = function () {
                 var _this = this;
                 this.addSlideVideoInfo(this.galleryItems);
                 this.buildStructure();
@@ -1066,7 +1066,7 @@ PERFORMANCE OF THIS SOFTWARE.
                     instance: this
                 });
                 if (this.settings.keyPress) this.keyPress();
-                setTimeout((function() {
+                setTimeout((function () {
                     _this.enableDrag();
                     _this.enableSwipe();
                     _this.triggerPosterClick();
@@ -1075,13 +1075,13 @@ PERFORMANCE OF THIS SOFTWARE.
                 if (this.settings.mousewheel) this.mousewheel();
                 if (!this.settings.dynamic) this.openGalleryOnItemClick();
             };
-            LightGallery.prototype.openGalleryOnItemClick = function() {
+            LightGallery.prototype.openGalleryOnItemClick = function () {
                 var _this = this;
-                var _loop_1 = function(index) {
+                var _loop_1 = function (index) {
                     var element = this_1.items[index];
                     var $element = $LG(element);
                     var uuid = lgQuery.generateUUID();
-                    $element.attr("data-lg-id", uuid).on("click.lgcustom-item-" + uuid, (function(e) {
+                    $element.attr("data-lg-id", uuid).on("click.lgcustom-item-" + uuid, (function (e) {
                         e.preventDefault();
                         var currentItemIndex = _this.settings.index || index;
                         _this.openGallery(currentItemIndex, element);
@@ -1090,31 +1090,31 @@ PERFORMANCE OF THIS SOFTWARE.
                 var this_1 = this;
                 for (var index = 0; index < this.items.length; index++) _loop_1(index);
             };
-            LightGallery.prototype.buildModules = function() {
+            LightGallery.prototype.buildModules = function () {
                 var _this = this;
-                this.settings.plugins.forEach((function(plugin) {
+                this.settings.plugins.forEach((function (plugin) {
                     _this.plugins.push(new plugin(_this, $LG));
                 }));
             };
-            LightGallery.prototype.validateLicense = function() {
+            LightGallery.prototype.validateLicense = function () {
                 if (!this.settings.licenseKey) console.error("Please provide a valid license key"); else if ("0000-0000-000-0000" === this.settings.licenseKey) console.warn("lightGallery: " + this.settings.licenseKey + " license key is not valid for production use");
             };
-            LightGallery.prototype.getSlideItem = function(index) {
+            LightGallery.prototype.getSlideItem = function (index) {
                 return $LG(this.getSlideItemId(index));
             };
-            LightGallery.prototype.getSlideItemId = function(index) {
+            LightGallery.prototype.getSlideItemId = function (index) {
                 return "#lg-item-" + this.lgId + "-" + index;
             };
-            LightGallery.prototype.getIdName = function(id) {
+            LightGallery.prototype.getIdName = function (id) {
                 return id + "-" + this.lgId;
             };
-            LightGallery.prototype.getElementById = function(id) {
+            LightGallery.prototype.getElementById = function (id) {
                 return $LG("#" + this.getIdName(id));
             };
-            LightGallery.prototype.manageSingleSlideClassName = function() {
+            LightGallery.prototype.manageSingleSlideClassName = function () {
                 if (this.galleryItems.length < 2) this.outer.addClass("lg-single-item"); else this.outer.removeClass("lg-single-item");
             };
-            LightGallery.prototype.buildStructure = function() {
+            LightGallery.prototype.buildStructure = function () {
                 var _this = this;
                 var container = this.$container && this.$container.get();
                 if (container) return;
@@ -1148,7 +1148,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 this.$inner.css("transition-duration", this.settings.speed + "ms");
                 if (this.settings.download) this.$toolbar.append('<a id="' + this.getIdName("lg-download") + '" target="_blank" rel="noopener" aria-label="' + this.settings.strings["download"] + '" download class="lg-download lg-icon"></a>');
                 this.counter();
-                $LG(window).on("resize.lg.global" + this.lgId + " orientationchange.lg.global" + this.lgId, (function() {
+                $LG(window).on("resize.lg.global" + this.lgId + " orientationchange.lg.global" + this.lgId, (function () {
                     _this.refreshOnResize();
                 }));
                 this.hideBars();
@@ -1156,7 +1156,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 this.toggleMaximize();
                 this.initModules();
             };
-            LightGallery.prototype.refreshOnResize = function() {
+            LightGallery.prototype.refreshOnResize = function () {
                 if (this.lgOpened) {
                     var currentGalleryItem = this.galleryItems[this.index];
                     var __slideVideoInfo = currentGalleryItem.__slideVideoInfo;
@@ -1171,12 +1171,12 @@ PERFORMANCE OF THIS SOFTWARE.
                     this.LGel.trigger(lGEvents.containerResize);
                 }
             };
-            LightGallery.prototype.resizeVideoSlide = function(index, imageSize) {
+            LightGallery.prototype.resizeVideoSlide = function (index, imageSize) {
                 var lgVideoStyle = this.getVideoContStyle(imageSize);
                 var currentSlide = this.getSlideItem(index);
                 currentSlide.find(".lg-video-cont").attr("style", lgVideoStyle);
             };
-            LightGallery.prototype.updateSlides = function(items, index) {
+            LightGallery.prototype.updateSlides = function (items, index) {
                 if (this.index > items.length - 1) this.index = items.length - 1;
                 if (1 === items.length) this.index = 0;
                 if (!items.length) {
@@ -1189,7 +1189,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 this.$inner.empty();
                 this.currentItemsInDom = [];
                 var _index = 0;
-                this.galleryItems.some((function(galleryItem, itemIndex) {
+                this.galleryItems.some((function (galleryItem, itemIndex) {
                     if (galleryItem.src === currentSrc) {
                         _index = itemIndex;
                         return true;
@@ -1203,7 +1203,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 this.updateCurrentCounter(_index);
                 this.LGel.trigger(lGEvents.updateSlides);
             };
-            LightGallery.prototype.getItems = function() {
+            LightGallery.prototype.getItems = function () {
                 this.items = [];
                 if (!this.settings.dynamic) {
                     if ("this" === this.settings.selector) this.items.push(this.el); else if (this.settings.selector) if ("string" === typeof this.settings.selector) if (this.settings.selectWithin) {
@@ -1213,10 +1213,10 @@ PERFORMANCE OF THIS SOFTWARE.
                     return utils.getDynamicOptions(this.items, this.settings.extraProps, this.settings.getCaptionFromTitleOrAlt, this.settings.exThumbImage);
                 } else return this.settings.dynamicEl || [];
             };
-            LightGallery.prototype.shouldHideScrollbar = function() {
+            LightGallery.prototype.shouldHideScrollbar = function () {
                 return this.settings.hideScrollbar && document.body === this.settings.container;
             };
-            LightGallery.prototype.hideScrollbar = function() {
+            LightGallery.prototype.hideScrollbar = function () {
                 if (!this.shouldHideScrollbar()) return;
                 this.bodyPaddingRight = parseFloat($LG("body").style().paddingRight);
                 var bodyRect = document.documentElement.getBoundingClientRect();
@@ -1224,12 +1224,12 @@ PERFORMANCE OF THIS SOFTWARE.
                 $LG(document.body).css("padding-right", scrollbarWidth + this.bodyPaddingRight + "px");
                 $LG(document.body).addClass("lg-overlay-open");
             };
-            LightGallery.prototype.resetScrollBar = function() {
+            LightGallery.prototype.resetScrollBar = function () {
                 if (!this.shouldHideScrollbar()) return;
                 $LG(document.body).css("padding-right", this.bodyPaddingRight + "px");
                 $LG(document.body).removeClass("lg-overlay-open");
             };
-            LightGallery.prototype.openGallery = function(index, element) {
+            LightGallery.prototype.openGallery = function (index, element) {
                 var _this = this;
                 if (void 0 === index) index = this.settings.index;
                 if (this.lgOpened) return;
@@ -1240,7 +1240,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 var itemsToBeInsertedToDom = this.getItemsToBeInsertedToDom(index, index);
                 this.currentItemsInDom = itemsToBeInsertedToDom;
                 var items = "";
-                itemsToBeInsertedToDom.forEach((function(item) {
+                itemsToBeInsertedToDom.forEach((function (item) {
                     items = items + '<div id="' + item + '" class="lg-item"></div>';
                 }));
                 this.$inner.append(items);
@@ -1259,7 +1259,7 @@ PERFORMANCE OF THIS SOFTWARE.
                     this.getSlideItem(index).removeClass("lg-complete");
                 }
                 var timeout = this.settings.zoomFromOrigin ? 100 : this.settings.backdropDuration;
-                setTimeout((function() {
+                setTimeout((function () {
                     _this.outer.addClass("lg-components-open");
                 }), timeout);
                 this.index = index;
@@ -1267,26 +1267,26 @@ PERFORMANCE OF THIS SOFTWARE.
                 this.getSlideItem(index).addClass("lg-current");
                 this.lGalleryOn = false;
                 this.prevScrollTop = $LG(window).scrollTop();
-                setTimeout((function() {
+                setTimeout((function () {
                     if (_this.zoomFromOrigin && transform) {
                         var currentSlide_1 = _this.getSlideItem(index);
                         currentSlide_1.css("transform", transform);
-                        setTimeout((function() {
+                        setTimeout((function () {
                             currentSlide_1.addClass("lg-start-progress lg-start-end-progress").css("transition-duration", _this.settings.startAnimationDuration + "ms");
                             _this.outer.addClass("lg-zoom-from-image");
                         }));
-                        setTimeout((function() {
+                        setTimeout((function () {
                             currentSlide_1.css("transform", "translate3d(0, 0, 0)");
                         }), 100);
                     }
-                    setTimeout((function() {
+                    setTimeout((function () {
                         _this.$backdrop.addClass("in");
                         _this.$container.addClass("lg-show-in");
                     }), 10);
-                    setTimeout((function() {
+                    setTimeout((function () {
                         if (_this.settings.trapFocus && document.body === _this.settings.container) _this.trapFocus();
                     }), _this.settings.backdropDuration + 50);
-                    if (!_this.zoomFromOrigin || !transform) setTimeout((function() {
+                    if (!_this.zoomFromOrigin || !transform) setTimeout((function () {
                         _this.outer.addClass("lg-visible");
                     }), _this.settings.backdropDuration);
                     _this.slide(index, false, false, false);
@@ -1294,7 +1294,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 }));
                 if (document.body === this.settings.container) $LG("html").addClass("lg-on");
             };
-            LightGallery.prototype.getMediaContainerPosition = function() {
+            LightGallery.prototype.getMediaContainerPosition = function () {
                 if (this.settings.allowMediaOverlap) return {
                     top: 0,
                     bottom: 0
@@ -1310,20 +1310,20 @@ PERFORMANCE OF THIS SOFTWARE.
                     bottom
                 };
             };
-            LightGallery.prototype.setMediaContainerPosition = function(top, bottom) {
+            LightGallery.prototype.setMediaContainerPosition = function (top, bottom) {
                 if (void 0 === top) top = 0;
                 if (void 0 === bottom) bottom = 0;
                 this.$content.css("top", top + "px").css("bottom", bottom + "px");
             };
-            LightGallery.prototype.hideBars = function() {
+            LightGallery.prototype.hideBars = function () {
                 var _this = this;
-                setTimeout((function() {
+                setTimeout((function () {
                     _this.outer.removeClass("lg-hide-items");
                     if (_this.settings.hideBarsDelay > 0) {
-                        _this.outer.on("mousemove.lg click.lg touchstart.lg", (function() {
+                        _this.outer.on("mousemove.lg click.lg touchstart.lg", (function () {
                             _this.outer.removeClass("lg-hide-items");
                             clearTimeout(_this.hideBarTimeout);
-                            _this.hideBarTimeout = setTimeout((function() {
+                            _this.hideBarTimeout = setTimeout((function () {
                                 _this.outer.addClass("lg-hide-items");
                             }), _this.settings.hideBarsDelay);
                         }));
@@ -1331,22 +1331,22 @@ PERFORMANCE OF THIS SOFTWARE.
                     }
                 }), this.settings.showBarsAfter);
             };
-            LightGallery.prototype.initPictureFill = function($img) {
+            LightGallery.prototype.initPictureFill = function ($img) {
                 if (this.settings.supportLegacyBrowser) try {
                     picturefill({
-                        elements: [ $img.get() ]
+                        elements: [$img.get()]
                     });
                 } catch (e) {
                     console.warn("lightGallery :- If you want srcset or picture tag to be supported for older browser please include picturefil javascript library in your document.");
                 }
             };
-            LightGallery.prototype.counter = function() {
+            LightGallery.prototype.counter = function () {
                 if (this.settings.counter) {
                     var counterHtml = '<div class="lg-counter" role="status" aria-live="polite">\n                <span id="' + this.getIdName("lg-counter-current") + '" class="lg-counter-current">' + (this.index + 1) + ' </span> /\n                <span id="' + this.getIdName("lg-counter-all") + '" class="lg-counter-all">' + this.galleryItems.length + " </span></div>";
                     this.outer.find(this.settings.appendCounterTo).append(counterHtml);
                 }
             };
-            LightGallery.prototype.addHtml = function(index) {
+            LightGallery.prototype.addHtml = function (index) {
                 var subHtml;
                 var subHtmlUrl;
                 if (this.galleryItems[index].subHtmlUrl) subHtmlUrl = this.galleryItems[index].subHtmlUrl; else subHtml = this.galleryItems[index].subHtml;
@@ -1363,7 +1363,7 @@ PERFORMANCE OF THIS SOFTWARE.
                     index
                 });
             };
-            LightGallery.prototype.preload = function(index) {
+            LightGallery.prototype.preload = function (index) {
                 for (var i = 1; i <= this.settings.preload; i++) {
                     if (i >= this.galleryItems.length - index) break;
                     this.loadContent(index + i, false);
@@ -1373,15 +1373,15 @@ PERFORMANCE OF THIS SOFTWARE.
                     this.loadContent(index - j, false);
                 }
             };
-            LightGallery.prototype.getDummyImgStyles = function(imageSize) {
+            LightGallery.prototype.getDummyImgStyles = function (imageSize) {
                 if (!imageSize) return "";
                 return "width:" + imageSize.width + "px;\n                margin-left: -" + imageSize.width / 2 + "px;\n                margin-top: -" + imageSize.height / 2 + "px;\n                height:" + imageSize.height + "px";
             };
-            LightGallery.prototype.getVideoContStyle = function(imageSize) {
+            LightGallery.prototype.getVideoContStyle = function (imageSize) {
                 if (!imageSize) return "";
                 return "width:" + imageSize.width + "px;\n                height:" + imageSize.height + "px";
             };
-            LightGallery.prototype.getDummyImageContent = function($currentSlide, index, alt) {
+            LightGallery.prototype.getDummyImageContent = function ($currentSlide, index, alt) {
                 var $currentItem;
                 if (!this.settings.dynamic) $currentItem = $LG(this.items).eq(index);
                 if ($currentItem) {
@@ -1396,7 +1396,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 }
                 return "";
             };
-            LightGallery.prototype.setImgMarkup = function(src, $currentSlide, index) {
+            LightGallery.prototype.setImgMarkup = function (src, $currentSlide, index) {
                 var currentGalleryItem = this.galleryItems[index];
                 var alt = currentGalleryItem.alt, srcset = currentGalleryItem.srcset, sizes = currentGalleryItem.sizes, sources = currentGalleryItem.sources;
                 var imgContent = "";
@@ -1405,31 +1405,31 @@ PERFORMANCE OF THIS SOFTWARE.
                 var imgMarkup = '<picture class="lg-img-wrap"> ' + imgContent + "</picture>";
                 $currentSlide.prepend(imgMarkup);
             };
-            LightGallery.prototype.onSlideObjectLoad = function($slide, isHTML5VideoWithoutPoster, onLoad, onError) {
+            LightGallery.prototype.onSlideObjectLoad = function ($slide, isHTML5VideoWithoutPoster, onLoad, onError) {
                 var mediaObject = $slide.find(".lg-object").first();
                 if (utils.isImageLoaded(mediaObject.get()) || isHTML5VideoWithoutPoster) onLoad(); else {
-                    mediaObject.on("load.lg error.lg", (function() {
+                    mediaObject.on("load.lg error.lg", (function () {
                         onLoad && onLoad();
                     }));
-                    mediaObject.on("error.lg", (function() {
+                    mediaObject.on("error.lg", (function () {
                         onError && onError();
                     }));
                 }
             };
-            LightGallery.prototype.onLgObjectLoad = function(currentSlide, index, delay, speed, isFirstSlide, isHTML5VideoWithoutPoster) {
+            LightGallery.prototype.onLgObjectLoad = function (currentSlide, index, delay, speed, isFirstSlide, isHTML5VideoWithoutPoster) {
                 var _this = this;
-                this.onSlideObjectLoad(currentSlide, isHTML5VideoWithoutPoster, (function() {
+                this.onSlideObjectLoad(currentSlide, isHTML5VideoWithoutPoster, (function () {
                     _this.triggerSlideItemLoad(currentSlide, index, delay, speed, isFirstSlide);
-                }), (function() {
+                }), (function () {
                     currentSlide.addClass("lg-complete lg-complete_");
                     currentSlide.html('<span class="lg-error-msg">Oops... Failed to load content...</span>');
                 }));
             };
-            LightGallery.prototype.triggerSlideItemLoad = function($currentSlide, index, delay, speed, isFirstSlide) {
+            LightGallery.prototype.triggerSlideItemLoad = function ($currentSlide, index, delay, speed, isFirstSlide) {
                 var _this = this;
                 var currentGalleryItem = this.galleryItems[index];
                 var _speed = isFirstSlide && "video" === this.getSlideType(currentGalleryItem) && !currentGalleryItem.poster ? speed : 0;
-                setTimeout((function() {
+                setTimeout((function () {
                     $currentSlide.addClass("lg-complete lg-complete_");
                     _this.LGel.trigger(lGEvents.slideItemLoad, {
                         index,
@@ -1438,17 +1438,17 @@ PERFORMANCE OF THIS SOFTWARE.
                     });
                 }), _speed);
             };
-            LightGallery.prototype.isFirstSlideWithZoomAnimation = function() {
+            LightGallery.prototype.isFirstSlideWithZoomAnimation = function () {
                 return !!(!this.lGalleryOn && this.zoomFromOrigin && this.currentImageSize);
             };
-            LightGallery.prototype.addSlideVideoInfo = function(items) {
+            LightGallery.prototype.addSlideVideoInfo = function (items) {
                 var _this = this;
-                items.forEach((function(element, index) {
+                items.forEach((function (element, index) {
                     element.__slideVideoInfo = utils.isVideo(element.src, !!element.video, index);
                     if (element.__slideVideoInfo && _this.settings.loadYouTubePoster && !element.poster && element.__slideVideoInfo.youtube) element.poster = "//img.youtube.com/vi/" + element.__slideVideoInfo.youtube[1] + "/maxresdefault.jpg";
                 }));
             };
-            LightGallery.prototype.loadContent = function(index, rec) {
+            LightGallery.prototype.loadContent = function (index, rec) {
                 var _this = this;
                 var currentGalleryItem = this.galleryItems[index];
                 var $currentSlide = $LG(this.getSlideItemId(index));
@@ -1505,10 +1505,10 @@ PERFORMANCE OF THIS SOFTWARE.
                 var _speed = 0;
                 if (delay && !$LG(document.body).hasClass("lg-from-hash")) _speed = delay;
                 if (this.isFirstSlideWithZoomAnimation()) {
-                    setTimeout((function() {
+                    setTimeout((function () {
                         $currentSlide.removeClass("lg-start-end-progress lg-start-progress").removeAttr("style");
                     }), this.settings.startAnimationDuration + 100);
-                    if (!$currentSlide.hasClass("lg-loaded")) setTimeout((function() {
+                    if (!$currentSlide.hasClass("lg-loaded")) setTimeout((function () {
                         if ("image" === _this.getSlideType(currentGalleryItem)) {
                             var alt = currentGalleryItem.alt;
                             var altAttr = alt ? 'alt="' + alt + '"' : "";
@@ -1520,9 +1520,9 @@ PERFORMANCE OF THIS SOFTWARE.
                         }
                         if ("image" === _this.getSlideType(currentGalleryItem) || "video" === _this.getSlideType(currentGalleryItem) && poster) {
                             _this.onLgObjectLoad($currentSlide, index, delay, _speed, true, false);
-                            _this.onSlideObjectLoad($currentSlide, !!(videoInfo && videoInfo.html5 && !poster), (function() {
+                            _this.onSlideObjectLoad($currentSlide, !!(videoInfo && videoInfo.html5 && !poster), (function () {
                                 _this.loadContentOnFirstSlideLoad(index, $currentSlide, _speed);
-                            }), (function() {
+                            }), (function () {
                                 _this.loadContentOnFirstSlideLoad(index, $currentSlide, _speed);
                             }));
                         }
@@ -1530,17 +1530,17 @@ PERFORMANCE OF THIS SOFTWARE.
                 }
                 $currentSlide.addClass("lg-loaded");
                 if (!this.isFirstSlideWithZoomAnimation() || "video" === this.getSlideType(currentGalleryItem) && !poster) this.onLgObjectLoad($currentSlide, index, delay, _speed, isFirstSlide, !!(videoInfo && videoInfo.html5 && !poster));
-                if ((!this.zoomFromOrigin || !this.currentImageSize) && $currentSlide.hasClass("lg-complete_") && !this.lGalleryOn) setTimeout((function() {
+                if ((!this.zoomFromOrigin || !this.currentImageSize) && $currentSlide.hasClass("lg-complete_") && !this.lGalleryOn) setTimeout((function () {
                     $currentSlide.addClass("lg-complete");
                 }), this.settings.backdropDuration);
                 this.lGalleryOn = true;
-                if (true === rec) if (!$currentSlide.hasClass("lg-complete_")) $currentSlide.find(".lg-object").first().on("load.lg error.lg", (function() {
+                if (true === rec) if (!$currentSlide.hasClass("lg-complete_")) $currentSlide.find(".lg-object").first().on("load.lg error.lg", (function () {
                     _this.preload(index);
                 })); else this.preload(index);
             };
-            LightGallery.prototype.loadContentOnFirstSlideLoad = function(index, $currentSlide, speed) {
+            LightGallery.prototype.loadContentOnFirstSlideLoad = function (index, $currentSlide, speed) {
                 var _this = this;
-                setTimeout((function() {
+                setTimeout((function () {
                     $currentSlide.find(".lg-dummy-img").remove();
                     $currentSlide.removeClass("lg-first-slide");
                     _this.outer.removeClass("lg-first-slide-loading");
@@ -1548,7 +1548,7 @@ PERFORMANCE OF THIS SOFTWARE.
                     _this.preload(index);
                 }), speed + 300);
             };
-            LightGallery.prototype.getItemsToBeInsertedToDom = function(index, prevIndex, numberOfItems) {
+            LightGallery.prototype.getItemsToBeInsertedToDom = function (index, prevIndex, numberOfItems) {
                 var _this = this;
                 if (void 0 === numberOfItems) numberOfItems = 0;
                 var itemsToBeInsertedToDom = [];
@@ -1556,7 +1556,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 possibleNumberOfItems = Math.min(possibleNumberOfItems, this.galleryItems.length);
                 var prevIndexItem = "lg-item-" + this.lgId + "-" + prevIndex;
                 if (this.galleryItems.length <= 3) {
-                    this.galleryItems.forEach((function(_element, index) {
+                    this.galleryItems.forEach((function (_element, index) {
                         itemsToBeInsertedToDom.push("lg-item-" + _this.lgId + "-" + index);
                     }));
                     return itemsToBeInsertedToDom;
@@ -1574,18 +1574,18 @@ PERFORMANCE OF THIS SOFTWARE.
                 if (-1 === itemsToBeInsertedToDom.indexOf(prevIndexItem)) itemsToBeInsertedToDom.push("lg-item-" + this.lgId + "-" + prevIndex);
                 return itemsToBeInsertedToDom;
             };
-            LightGallery.prototype.organizeSlideItems = function(index, prevIndex) {
+            LightGallery.prototype.organizeSlideItems = function (index, prevIndex) {
                 var _this = this;
                 var itemsToBeInsertedToDom = this.getItemsToBeInsertedToDom(index, prevIndex, this.settings.numberOfSlideItemsInDom);
-                itemsToBeInsertedToDom.forEach((function(item) {
+                itemsToBeInsertedToDom.forEach((function (item) {
                     if (-1 === _this.currentItemsInDom.indexOf(item)) _this.$inner.append('<div id="' + item + '" class="lg-item"></div>');
                 }));
-                this.currentItemsInDom.forEach((function(item) {
+                this.currentItemsInDom.forEach((function (item) {
                     if (-1 === itemsToBeInsertedToDom.indexOf(item)) $LG("#" + item).remove();
                 }));
                 return itemsToBeInsertedToDom;
             };
-            LightGallery.prototype.getPreviousSlideIndex = function() {
+            LightGallery.prototype.getPreviousSlideIndex = function () {
                 var prevIndex = 0;
                 try {
                     var currentItemId = this.outer.find(".lg-current").first().attr("id");
@@ -1595,7 +1595,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 }
                 return prevIndex;
             };
-            LightGallery.prototype.setDownloadValue = function(index) {
+            LightGallery.prototype.setDownloadValue = function (index) {
                 if (this.settings.download) {
                     var currentGalleryItem = this.galleryItems[index];
                     var hideDownloadBtn = false === currentGalleryItem.downloadUrl || "false" === currentGalleryItem.downloadUrl;
@@ -1607,10 +1607,10 @@ PERFORMANCE OF THIS SOFTWARE.
                     }
                 }
             };
-            LightGallery.prototype.makeSlideAnimation = function(direction, currentSlideItem, previousSlideItem) {
+            LightGallery.prototype.makeSlideAnimation = function (direction, currentSlideItem, previousSlideItem) {
                 var _this = this;
                 if (this.lGalleryOn) previousSlideItem.addClass("lg-slide-progress");
-                setTimeout((function() {
+                setTimeout((function () {
                     _this.outer.addClass("lg-no-trans");
                     _this.outer.find(".lg-item").removeClass("lg-prev-slide lg-next-slide");
                     if ("prev" === direction) {
@@ -1620,14 +1620,14 @@ PERFORMANCE OF THIS SOFTWARE.
                         currentSlideItem.addClass("lg-next-slide");
                         previousSlideItem.addClass("lg-prev-slide");
                     }
-                    setTimeout((function() {
+                    setTimeout((function () {
                         _this.outer.find(".lg-item").removeClass("lg-current");
                         currentSlideItem.addClass("lg-current");
                         _this.outer.removeClass("lg-no-trans");
                     }), 50);
                 }), this.lGalleryOn ? this.settings.slideDelay : 0);
             };
-            LightGallery.prototype.slide = function(index, fromTouch, fromThumb, direction) {
+            LightGallery.prototype.slide = function (index, fromTouch, fromThumb, direction) {
                 var _this = this;
                 var prevIndex = this.getPreviousSlideIndex();
                 this.currentItemsInDom = this.organizeSlideItems(index, prevIndex);
@@ -1677,11 +1677,11 @@ PERFORMANCE OF THIS SOFTWARE.
                         if ("prev" === direction) this.getSlideItem(touchNext).addClass("lg-next-slide"); else this.getSlideItem(touchPrev).addClass("lg-prev-slide");
                         currentSlideItem.addClass("lg-current");
                     }
-                    if (!this.lGalleryOn) this.loadContent(index, true); else setTimeout((function() {
+                    if (!this.lGalleryOn) this.loadContent(index, true); else setTimeout((function () {
                         _this.loadContent(index, true);
                         if (".lg-item" !== _this.settings.appendSubHtmlTo) _this.addHtml(index);
                     }), this.settings.speed + 50 + (fromTouch ? 0 : this.settings.slideDelay));
-                    setTimeout((function() {
+                    setTimeout((function () {
                         _this.lgBusy = false;
                         previousSlideItem_1.removeClass("lg-slide-progress");
                         _this.LGel.trigger(lGEvents.afterSlide, {
@@ -1694,16 +1694,16 @@ PERFORMANCE OF THIS SOFTWARE.
                 }
                 this.index = index;
             };
-            LightGallery.prototype.updateCurrentCounter = function(index) {
+            LightGallery.prototype.updateCurrentCounter = function (index) {
                 this.getElementById("lg-counter-current").html(index + 1 + "");
             };
-            LightGallery.prototype.updateCounterTotal = function() {
+            LightGallery.prototype.updateCounterTotal = function () {
                 this.getElementById("lg-counter-all").html(this.galleryItems.length + "");
             };
-            LightGallery.prototype.getSlideType = function(item) {
+            LightGallery.prototype.getSlideType = function (item) {
                 if (item.__slideVideoInfo) return "video"; else if (item.iframe) return "iframe"; else return "image";
             };
-            LightGallery.prototype.touchMove = function(startCoords, endCoords, e) {
+            LightGallery.prototype.touchMove = function (startCoords, endCoords, e) {
                 var distanceX = endCoords.pageX - startCoords.pageX;
                 var distanceY = endCoords.pageY - startCoords.pageY;
                 var allowSwipe = false;
@@ -1735,11 +1735,11 @@ PERFORMANCE OF THIS SOFTWARE.
                     if (Math.abs(distanceY) > 100) this.outer.addClass("lg-hide-items").removeClass("lg-components-open");
                 }
             };
-            LightGallery.prototype.touchEnd = function(endCoords, startCoords, event) {
+            LightGallery.prototype.touchEnd = function (endCoords, startCoords, event) {
                 var _this = this;
                 var distance;
                 if ("lg-slide" !== this.settings.mode) this.outer.addClass("lg-slide");
-                setTimeout((function() {
+                setTimeout((function () {
                     _this.$container.removeClass("lg-dragging-vertical");
                     _this.outer.removeClass("lg-dragging lg-hide-items").addClass("lg-components-open");
                     var triggerClick = true;
@@ -1767,18 +1767,18 @@ PERFORMANCE OF THIS SOFTWARE.
                     }
                     _this.swipeDirection = void 0;
                 }));
-                setTimeout((function() {
+                setTimeout((function () {
                     if (!_this.outer.hasClass("lg-dragging") && "lg-slide" !== _this.settings.mode) _this.outer.removeClass("lg-slide");
                 }), this.settings.speed + 100);
             };
-            LightGallery.prototype.enableSwipe = function() {
+            LightGallery.prototype.enableSwipe = function () {
                 var _this = this;
                 var startCoords = {};
                 var endCoords = {};
                 var isMoved = false;
                 var isSwiping = false;
                 if (this.settings.enableSwipe) {
-                    this.$inner.on("touchstart.lg", (function(e) {
+                    this.$inner.on("touchstart.lg", (function (e) {
                         _this.dragOrSwipeEnabled = true;
                         var $item = _this.getSlideItem(_this.index);
                         if (($LG(e.target).hasClass("lg-item") || $item.get().contains(e.target)) && !_this.outer.hasClass("lg-zoomed") && !_this.lgBusy && 1 === e.touches.length) {
@@ -1791,7 +1791,7 @@ PERFORMANCE OF THIS SOFTWARE.
                             };
                         }
                     }));
-                    this.$inner.on("touchmove.lg", (function(e) {
+                    this.$inner.on("touchmove.lg", (function (e) {
                         if (isSwiping && "swipe" === _this.touchAction && 1 === e.touches.length) {
                             endCoords = {
                                 pageX: e.touches[0].pageX,
@@ -1801,7 +1801,7 @@ PERFORMANCE OF THIS SOFTWARE.
                             isMoved = true;
                         }
                     }));
-                    this.$inner.on("touchend.lg", (function(event) {
+                    this.$inner.on("touchend.lg", (function (event) {
                         if ("swipe" === _this.touchAction) {
                             if (isMoved) {
                                 isMoved = false;
@@ -1816,14 +1816,14 @@ PERFORMANCE OF THIS SOFTWARE.
                     }));
                 }
             };
-            LightGallery.prototype.enableDrag = function() {
+            LightGallery.prototype.enableDrag = function () {
                 var _this = this;
                 var startCoords = {};
                 var endCoords = {};
                 var isDraging = false;
                 var isMoved = false;
                 if (this.settings.enableDrag) {
-                    this.outer.on("mousedown.lg", (function(e) {
+                    this.outer.on("mousedown.lg", (function (e) {
                         _this.dragOrSwipeEnabled = true;
                         var $item = _this.getSlideItem(_this.index);
                         if ($LG(e.target).hasClass("lg-item") || $item.get().contains(e.target)) if (!_this.outer.hasClass("lg-zoomed") && !_this.lgBusy) {
@@ -1842,7 +1842,7 @@ PERFORMANCE OF THIS SOFTWARE.
                             }
                         }
                     }));
-                    $LG(window).on("mousemove.lg.global" + this.lgId, (function(e) {
+                    $LG(window).on("mousemove.lg.global" + this.lgId, (function (e) {
                         if (isDraging && _this.lgOpened) {
                             isMoved = true;
                             endCoords = {
@@ -1853,7 +1853,7 @@ PERFORMANCE OF THIS SOFTWARE.
                             _this.LGel.trigger(lGEvents.dragMove);
                         }
                     }));
-                    $LG(window).on("mouseup.lg.global" + this.lgId, (function(event) {
+                    $LG(window).on("mouseup.lg.global" + this.lgId, (function (event) {
                         if (!_this.lgOpened) return;
                         var target = $LG(event.target);
                         if (isMoved) {
@@ -1868,13 +1868,13 @@ PERFORMANCE OF THIS SOFTWARE.
                     }));
                 }
             };
-            LightGallery.prototype.triggerPosterClick = function() {
+            LightGallery.prototype.triggerPosterClick = function () {
                 var _this = this;
-                this.$inner.on("click.lg", (function(event) {
+                this.$inner.on("click.lg", (function (event) {
                     if (!_this.dragOrSwipeEnabled && _this.isPosterElement($LG(event.target))) _this.LGel.trigger(lGEvents.posterClick);
                 }));
             };
-            LightGallery.prototype.manageSwipeClass = function() {
+            LightGallery.prototype.manageSwipeClass = function () {
                 var _touchNext = this.index + 1;
                 var _touchPrev = this.index - 1;
                 if (this.settings.loop && this.galleryItems.length > 2) if (0 === this.index) _touchPrev = this.galleryItems.length - 1; else if (this.index === this.galleryItems.length - 1) _touchNext = 0;
@@ -1882,7 +1882,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 if (_touchPrev > -1) this.getSlideItem(_touchPrev).addClass("lg-prev-slide");
                 this.getSlideItem(_touchNext).addClass("lg-next-slide");
             };
-            LightGallery.prototype.goToNextSlide = function(fromTouch) {
+            LightGallery.prototype.goToNextSlide = function (fromTouch) {
                 var _this = this;
                 var _loop = this.settings.loop;
                 if (fromTouch && this.galleryItems.length < 3) _loop = false;
@@ -1900,12 +1900,12 @@ PERFORMANCE OF THIS SOFTWARE.
                     this.slide(this.index, !!fromTouch, false, "next");
                 } else if (this.settings.slideEndAnimation && !fromTouch) {
                     this.outer.addClass("lg-right-end");
-                    setTimeout((function() {
+                    setTimeout((function () {
                         _this.outer.removeClass("lg-right-end");
                     }), 400);
                 }
             };
-            LightGallery.prototype.goToPrevSlide = function(fromTouch) {
+            LightGallery.prototype.goToPrevSlide = function (fromTouch) {
                 var _this = this;
                 var _loop = this.settings.loop;
                 if (fromTouch && this.galleryItems.length < 3) _loop = false;
@@ -1925,14 +1925,14 @@ PERFORMANCE OF THIS SOFTWARE.
                     this.slide(this.index, !!fromTouch, false, "prev");
                 } else if (this.settings.slideEndAnimation && !fromTouch) {
                     this.outer.addClass("lg-left-end");
-                    setTimeout((function() {
+                    setTimeout((function () {
                         _this.outer.removeClass("lg-left-end");
                     }), 400);
                 }
             };
-            LightGallery.prototype.keyPress = function() {
+            LightGallery.prototype.keyPress = function () {
                 var _this = this;
-                $LG(window).on("keydown.lg.global" + this.lgId, (function(e) {
+                $LG(window).on("keydown.lg.global" + this.lgId, (function (e) {
                     if (_this.lgOpened && true === _this.settings.escKey && 27 === e.keyCode) {
                         e.preventDefault();
                         if (_this.settings.allowMediaOverlap && _this.outer.hasClass("lg-can-toggle") && _this.outer.hasClass("lg-components-open")) _this.outer.removeClass("lg-components-open"); else _this.closeGallery();
@@ -1949,16 +1949,16 @@ PERFORMANCE OF THIS SOFTWARE.
                     }
                 }));
             };
-            LightGallery.prototype.arrow = function() {
+            LightGallery.prototype.arrow = function () {
                 var _this = this;
-                this.getElementById("lg-prev").on("click.lg", (function() {
+                this.getElementById("lg-prev").on("click.lg", (function () {
                     _this.goToPrevSlide();
                 }));
-                this.getElementById("lg-next").on("click.lg", (function() {
+                this.getElementById("lg-next").on("click.lg", (function () {
                     _this.goToNextSlide();
                 }));
             };
-            LightGallery.prototype.arrowDisable = function(index) {
+            LightGallery.prototype.arrowDisable = function (index) {
                 if (!this.settings.loop && this.settings.hideControlOnEnd) {
                     var $prev = this.getElementById("lg-prev");
                     var $next = this.getElementById("lg-next");
@@ -1966,15 +1966,15 @@ PERFORMANCE OF THIS SOFTWARE.
                     if (0 === index) $prev.attr("disabled", "disabled").addClass("disabled"); else $prev.removeAttr("disabled").removeClass("disabled");
                 }
             };
-            LightGallery.prototype.setTranslate = function($el, xValue, yValue, scaleX, scaleY) {
+            LightGallery.prototype.setTranslate = function ($el, xValue, yValue, scaleX, scaleY) {
                 if (void 0 === scaleX) scaleX = 1;
                 if (void 0 === scaleY) scaleY = 1;
                 $el.css("transform", "translate3d(" + xValue + "px, " + yValue + "px, 0px) scale3d(" + scaleX + ", " + scaleY + ", 1)");
             };
-            LightGallery.prototype.mousewheel = function() {
+            LightGallery.prototype.mousewheel = function () {
                 var _this = this;
                 var lastCall = 0;
-                this.outer.on("wheel.lg", (function(e) {
+                this.outer.on("wheel.lg", (function (e) {
                     if (!e.deltaY || _this.galleryItems.length < 2) return;
                     e.preventDefault();
                     var now = (new Date).getTime();
@@ -1983,33 +1983,33 @@ PERFORMANCE OF THIS SOFTWARE.
                     if (e.deltaY > 0) _this.goToNextSlide(); else if (e.deltaY < 0) _this.goToPrevSlide();
                 }));
             };
-            LightGallery.prototype.isSlideElement = function(target) {
+            LightGallery.prototype.isSlideElement = function (target) {
                 return target.hasClass("lg-outer") || target.hasClass("lg-item") || target.hasClass("lg-img-wrap");
             };
-            LightGallery.prototype.isPosterElement = function(target) {
+            LightGallery.prototype.isPosterElement = function (target) {
                 var playButton = this.getSlideItem(this.index).find(".lg-video-play-button").get();
                 return target.hasClass("lg-video-poster") || target.hasClass("lg-video-play-button") || playButton && playButton.contains(target.get());
             };
-            LightGallery.prototype.toggleMaximize = function() {
+            LightGallery.prototype.toggleMaximize = function () {
                 var _this = this;
-                this.getElementById("lg-maximize").on("click.lg", (function() {
+                this.getElementById("lg-maximize").on("click.lg", (function () {
                     _this.$container.toggleClass("lg-inline");
                     _this.refreshOnResize();
                 }));
             };
-            LightGallery.prototype.invalidateItems = function() {
+            LightGallery.prototype.invalidateItems = function () {
                 for (var index = 0; index < this.items.length; index++) {
                     var element = this.items[index];
                     var $element = $LG(element);
                     $element.off("click.lgcustom-item-" + $element.attr("data-lg-id"));
                 }
             };
-            LightGallery.prototype.trapFocus = function() {
+            LightGallery.prototype.trapFocus = function () {
                 var _this = this;
                 this.$container.get().focus({
                     preventScroll: true
                 });
-                $LG(window).on("keydown.lg.global" + this.lgId, (function(e) {
+                $LG(window).on("keydown.lg.global" + this.lgId, (function (e) {
                     if (!_this.lgOpened) return;
                     var isTabPressed = "Tab" === e.key || 9 === e.keyCode;
                     if (!isTabPressed) return;
@@ -2027,28 +2027,28 @@ PERFORMANCE OF THIS SOFTWARE.
                     }
                 }));
             };
-            LightGallery.prototype.manageCloseGallery = function() {
+            LightGallery.prototype.manageCloseGallery = function () {
                 var _this = this;
                 if (!this.settings.closable) return;
                 var mousedown = false;
-                this.getElementById("lg-close").on("click.lg", (function() {
+                this.getElementById("lg-close").on("click.lg", (function () {
                     _this.closeGallery();
                 }));
                 if (this.settings.closeOnTap) {
-                    this.outer.on("mousedown.lg", (function(e) {
+                    this.outer.on("mousedown.lg", (function (e) {
                         var target = $LG(e.target);
                         if (_this.isSlideElement(target)) mousedown = true; else mousedown = false;
                     }));
-                    this.outer.on("mousemove.lg", (function() {
+                    this.outer.on("mousemove.lg", (function () {
                         mousedown = false;
                     }));
-                    this.outer.on("mouseup.lg", (function(e) {
+                    this.outer.on("mouseup.lg", (function (e) {
                         var target = $LG(e.target);
                         if (_this.isSlideElement(target) && mousedown) if (!_this.outer.hasClass("lg-dragging")) _this.closeGallery();
                     }));
                 }
             };
-            LightGallery.prototype.closeGallery = function(force) {
+            LightGallery.prototype.closeGallery = function (force) {
                 var _this = this;
                 if (!this.lgOpened || !this.settings.closable && !force) return 0;
                 this.LGel.trigger(lGEvents.beforeClose);
@@ -2079,7 +2079,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 this.$backdrop.removeClass("in").css("opacity", 0);
                 var removeTimeout = this.zoomFromOrigin && transform ? Math.max(this.settings.startAnimationDuration, this.settings.backdropDuration) : this.settings.backdropDuration;
                 this.$container.removeClass("lg-show-in");
-                setTimeout((function() {
+                setTimeout((function () {
                     if (_this.zoomFromOrigin && transform) _this.outer.removeClass("lg-zoom-from-image");
                     _this.$container.removeClass("lg-show");
                     _this.resetScrollBar();
@@ -2095,8 +2095,8 @@ PERFORMANCE OF THIS SOFTWARE.
                 }), removeTimeout + 100);
                 return removeTimeout + 100;
             };
-            LightGallery.prototype.initModules = function() {
-                this.plugins.forEach((function(module) {
+            LightGallery.prototype.initModules = function () {
+                this.plugins.forEach((function (module) {
                     try {
                         module.init();
                     } catch (err) {
@@ -2104,8 +2104,8 @@ PERFORMANCE OF THIS SOFTWARE.
                     }
                 }));
             };
-            LightGallery.prototype.destroyModules = function(destroy) {
-                this.plugins.forEach((function(module) {
+            LightGallery.prototype.destroyModules = function (destroy) {
+                this.plugins.forEach((function (module) {
                     try {
                         if (destroy) module.destroy(); else module.closeGallery && module.closeGallery();
                     } catch (err) {
@@ -2113,26 +2113,26 @@ PERFORMANCE OF THIS SOFTWARE.
                     }
                 }));
             };
-            LightGallery.prototype.refresh = function(galleryItems) {
+            LightGallery.prototype.refresh = function (galleryItems) {
                 if (!this.settings.dynamic) this.invalidateItems();
                 if (galleryItems) this.galleryItems = galleryItems; else this.galleryItems = this.getItems();
                 this.updateControls();
                 this.openGalleryOnItemClick();
                 this.LGel.trigger(lGEvents.updateSlides);
             };
-            LightGallery.prototype.updateControls = function() {
+            LightGallery.prototype.updateControls = function () {
                 this.addSlideVideoInfo(this.galleryItems);
                 this.updateCounterTotal();
                 this.manageSingleSlideClassName();
             };
-            LightGallery.prototype.destroyGallery = function() {
+            LightGallery.prototype.destroyGallery = function () {
                 this.destroyModules(true);
                 if (!this.settings.dynamic) this.invalidateItems();
                 $LG(window).off(".lg.global" + this.lgId);
                 this.LGel.off(".lg");
                 this.$container.remove();
             };
-            LightGallery.prototype.destroy = function() {
+            LightGallery.prototype.destroy = function () {
                 var closeTimeout = this.closeGallery(true);
                 if (closeTimeout) setTimeout(this.destroyGallery.bind(this), closeTimeout); else this.destroyGallery();
                 return closeTimeout;
@@ -2151,7 +2151,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 galleyItems.push({
                     gallery,
                     galleryClass: lightgallery_es5(gallery, {
-                        plugins: [ lg_thumbnail_min ],
+                        plugins: [lg_thumbnail_min],
                         licenseKey: "7EC452A9-0CFD441C-BD984C7C-17C8456E",
                         speed: 500
                     })
@@ -2162,7 +2162,7 @@ PERFORMANCE OF THIS SOFTWARE.
         function DynamicAdapt(type) {
             this.type = type;
         }
-        DynamicAdapt.prototype.init = function() {
+        DynamicAdapt.prototype.init = function () {
             const _this = this;
             this.оbjects = [];
             this.daClassname = "_dynamic_adapt_";
@@ -2181,10 +2181,10 @@ PERFORMANCE OF THIS SOFTWARE.
                 this.оbjects.push(оbject);
             }
             this.arraySort(this.оbjects);
-            this.mediaQueries = Array.prototype.map.call(this.оbjects, (function(item) {
+            this.mediaQueries = Array.prototype.map.call(this.оbjects, (function (item) {
                 return "(" + this.type + "-width: " + item.breakpoint + "px)," + item.breakpoint;
             }), this);
-            this.mediaQueries = Array.prototype.filter.call(this.mediaQueries, (function(item, index, self) {
+            this.mediaQueries = Array.prototype.filter.call(this.mediaQueries, (function (item, index, self) {
                 return Array.prototype.indexOf.call(self, item) === index;
             }));
             for (let i = 0; i < this.mediaQueries.length; i++) {
@@ -2192,16 +2192,16 @@ PERFORMANCE OF THIS SOFTWARE.
                 const mediaSplit = String.prototype.split.call(media, ",");
                 const matchMedia = window.matchMedia(mediaSplit[0]);
                 const mediaBreakpoint = mediaSplit[1];
-                const оbjectsFilter = Array.prototype.filter.call(this.оbjects, (function(item) {
+                const оbjectsFilter = Array.prototype.filter.call(this.оbjects, (function (item) {
                     return item.breakpoint === mediaBreakpoint;
                 }));
-                matchMedia.addListener((function() {
+                matchMedia.addListener((function () {
                     _this.mediaHandler(matchMedia, оbjectsFilter);
                 }));
                 this.mediaHandler(matchMedia, оbjectsFilter);
             }
         };
-        DynamicAdapt.prototype.mediaHandler = function(matchMedia, оbjects) {
+        DynamicAdapt.prototype.mediaHandler = function (matchMedia, оbjects) {
             if (matchMedia.matches) for (let i = 0; i < оbjects.length; i++) {
                 const оbject = оbjects[i];
                 оbject.index = this.indexInParent(оbject.parent, оbject.element);
@@ -2211,7 +2211,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 if (оbject.element.classList.contains(this.daClassname)) this.moveBack(оbject.parent, оbject.element, оbject.index);
             }
         };
-        DynamicAdapt.prototype.moveTo = function(place, element, destination) {
+        DynamicAdapt.prototype.moveTo = function (place, element, destination) {
             element.classList.add(this.daClassname);
             if ("last" === place || place >= destination.children.length) {
                 destination.insertAdjacentElement("beforeend", element);
@@ -2223,16 +2223,16 @@ PERFORMANCE OF THIS SOFTWARE.
             }
             destination.children[place].insertAdjacentElement("beforebegin", element);
         };
-        DynamicAdapt.prototype.moveBack = function(parent, element, index) {
+        DynamicAdapt.prototype.moveBack = function (parent, element, index) {
             element.classList.remove(this.daClassname);
             if (void 0 !== parent.children[index]) parent.children[index].insertAdjacentElement("beforebegin", element); else parent.insertAdjacentElement("beforeend", element);
         };
-        DynamicAdapt.prototype.indexInParent = function(parent, element) {
+        DynamicAdapt.prototype.indexInParent = function (parent, element) {
             const array = Array.prototype.slice.call(parent.children);
             return Array.prototype.indexOf.call(array, element);
         };
-        DynamicAdapt.prototype.arraySort = function(arr) {
-            if ("min" === this.type) Array.prototype.sort.call(arr, (function(a, b) {
+        DynamicAdapt.prototype.arraySort = function (arr) {
+            if ("min" === this.type) Array.prototype.sort.call(arr, (function (a, b) {
                 if (a.breakpoint === b.breakpoint) {
                     if (a.place === b.place) return 0;
                     if ("first" === a.place || "last" === b.place) return -1;
@@ -2241,7 +2241,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 }
                 return a.breakpoint - b.breakpoint;
             })); else {
-                Array.prototype.sort.call(arr, (function(a, b) {
+                Array.prototype.sort.call(arr, (function (a, b) {
                     if (a.breakpoint === b.breakpoint) {
                         if (a.place === b.place) return 0;
                         if ("first" === a.place || "last" === b.place) return 1;
@@ -2258,30 +2258,34 @@ PERFORMANCE OF THIS SOFTWARE.
         const menuBurger = document.querySelector(".menu__button");
         const menuBody = document.querySelector(".menu__body");
         const wrap = document.querySelector("body");
-        if (menuBurger) menuBurger.addEventListener("click", (function(e) {
+        if (menuBurger) menuBurger.addEventListener("click", (function (e) {
             menuBurger.classList.toggle("icon-active");
             if (menuBody) menuBody.classList.toggle("menu-active");
             if (wrap) wrap.classList.toggle("wrap-active");
             if (shareMenu) shareMenu.classList.remove("social-menu-active");
         }));
-        if (menuBody) menuBody.addEventListener("click", (function(e) {
+        if (menuBody) menuBody.addEventListener("click", (function (e) {
             menuBody.classList.remove("menu-active");
             if (wrap) wrap.classList.remove("wrap-active");
             if (menuBurger) menuBurger.classList.remove("icon-active");
         }));
         const share = document.querySelector(".menu__button-share ");
         const shareMenu = document.querySelector(".social-menu");
-        if (share) share.addEventListener("click", (function(e) {
+        if (share) share.addEventListener("click", (function (e) {
             if (shareMenu) shareMenu.classList.add("social-menu-active");
             if (wrap) wrap.classList.add("wrap-active");
         }));
+        if (shareMenu) shareMenu.addEventListener("click", (function (e) {
+            shareMenu.classList.remove("social-menu-active");
+            if (wrap) wrap.classList.remove("wrap-active");
+        }));
         const buttonCloseSoc = document.querySelector(".menu__button-soc");
-        if (buttonCloseSoc) buttonCloseSoc.addEventListener("click", (function(e) {
+        if (buttonCloseSoc) buttonCloseSoc.addEventListener("click", (function (e) {
             if (shareMenu) shareMenu.classList.remove("social-menu-active");
             if (wrap) wrap.classList.remove("wrap-active");
         }));
         let tl = document.querySelectorAll("#wrp .menu__item");
-        for (let i = 0; i < tl.length; i++) tl[i].addEventListener("click", (function() {
+        for (let i = 0; i < tl.length; i++) tl[i].addEventListener("click", (function () {
             if (this.classList.contains("t_active")) this.classList.remove("t_active"); else {
                 tl.forEach((item => {
                     if (item.classList.contains("t_active")) item.classList.remove("t_active");
@@ -2295,7 +2299,7 @@ PERFORMANCE OF THIS SOFTWARE.
             }));
         }
         let options = {
-            threshold: [ .5 ]
+            threshold: [.5]
         };
         let observer = new IntersectionObserver(onEntry, options);
         let script_elements = document.querySelectorAll(".element-animation");
