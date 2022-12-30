@@ -487,7 +487,7 @@ html {
 .icon-active::after {
   content: "";
   width: 25px !important;
-  top: 9px !important;
+  top: 8px !important;
   background-color: #471D1D !important;
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
@@ -500,7 +500,7 @@ html {
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
-  bottom: 9px !important;
+  bottom: 6px !important;
   opacity: 1;
   background-color: #471D1D !important;
 }
@@ -1350,6 +1350,58 @@ html {
   color: #F44647;
 }
 
+.element-animation {
+  opacity: 0;
+}
+
+.element-animation.element-show {
+  opacity: 1;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+
+.pictures .element-show:nth-child(even) {
+  -webkit-transition: all 1.5s;
+  -o-transition: all 1.5s;
+  transition: all 1.5s;
+}
+
+.start-animation {
+  -webkit-animation-name: startAnim;
+          animation-name: startAnim;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@-webkit-keyframes startAnim {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes startAnim {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 .header {
   display: none;
 }
@@ -1718,10 +1770,10 @@ li:active {
 .lg-toolbar .lg-close:after {
   content: "";
   position: absolute;
-  width: 34px;
+  width: 26px;
   height: 2px;
-  top: 34px;
-  left: 0;
+  top: 26px;
+  left: 10px;
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
@@ -1732,10 +1784,10 @@ li:active {
 .lg-toolbar .lg-close:before {
   content: "";
   position: absolute;
-  width: 34px;
+  width: 26px;
   height: 2px;
-  top: 34px;
-  left: 0;
+  top: 26px;
+  left: 10px;
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
@@ -2319,8 +2371,13 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   padding: 14px 0;
   height: 100%;
   margin-bottom: -5px;
-  display: inline-block;
-  vertical-align: middle;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
 }
 
 .lg-outer .lg-thumb-item {

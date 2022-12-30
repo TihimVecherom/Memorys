@@ -2289,6 +2289,17 @@ PERFORMANCE OF THIS SOFTWARE.
                 this.classList.add("t_active");
             }
         }));
+        function onEntry(entry) {
+            entry.forEach((change => {
+                if (change.isIntersecting) change.target.classList.add("element-show");
+            }));
+        }
+        let options = {
+            threshold: [ .5 ]
+        };
+        let observer = new IntersectionObserver(onEntry, options);
+        let script_elements = document.querySelectorAll(".element-animation");
+        for (let elm of script_elements) observer.observe(elm);
         window["FLS"] = true;
         isWebp();
         spollers();
