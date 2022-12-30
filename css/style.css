@@ -1515,7 +1515,6 @@ li:active {
   border-radius: 50%;
   position: absolute;
   top: 50%;
-  z-index: 1080;
   outline: none;
   border: none;
   -webkit-transition: 0.2s;
@@ -1950,11 +1949,11 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 .lg-show-in .lg-prev,
 .lg-show-in .lg-next,
 .lg-show-in .lg-pager-outer {
-  opacity: 1 !important;
+  opacity: 1;
 }
 
 .lg-show-in.lg-hide-sub-html .lg-sub-html {
-  opacity: 1 !important;
+  opacity: 1;
 }
 
 .lg-show-in .lg-hide-items .lg-prev {
@@ -2008,7 +2007,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 }
 
 .lg-outer.lg-visible {
-  opacity: 1 !important;
+  opacity: 1;
 }
 
 .lg-outer.lg-css3 .lg-item:not(.lg-start-end-progress).lg-prev-slide,
@@ -2028,7 +2027,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   -webkit-transition-duration: 0s !important;
   -o-transition-duration: 0s !important;
      transition-duration: 0s !important;
-  opacity: 1 !important;
+  opacity: 1;
 }
 
 .lg-outer.lg-grab img.lg-object {
@@ -2093,6 +2092,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   height: 100%;
   padding-left: 15px;
   padding-right: 15px;
+  padding-bottom: 50px;
 }
 
 .lg-outer .lg-item:before,
@@ -2499,6 +2499,13 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   .info__block-items {
     max-width: 100%;
     margin-bottom: 31px;
+  }
+
+  .lg-next,
+  .lg-prev {
+    top: calc(100% + 30px);
+    opacity: 1 !important;
+    z-index: 125465775 !important;
   }
 
   .lg-outer .lg-thumb-outer {
