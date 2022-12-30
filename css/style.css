@@ -486,7 +486,7 @@ html {
 
 .icon-active::after {
   content: "";
-  width: 25px;
+  width: 25px !important;
   top: 9px !important;
   background-color: #471D1D !important;
   -webkit-transform: rotate(45deg);
@@ -496,7 +496,7 @@ html {
 
 .icon-active::before {
   content: "";
-  width: 25px;
+  width: 25px !important;
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
