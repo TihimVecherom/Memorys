@@ -1545,11 +1545,6 @@ li:active {
   background-color: #471D1D;
 }
 
-.lg-single-item .lg-next,
-.lg-single-item .lg-prev {
-  display: none;
-}
-
 .lg-next {
   right: 20px;
   -webkit-transition: 0.2s;
@@ -1568,6 +1563,7 @@ li:active {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 10000;
 }
 
 .lg-next:after {
@@ -1619,6 +1615,7 @@ li:active {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 10000;
 }
 
 .lg-prev:after {
@@ -1779,6 +1776,7 @@ li:active {
           transform: rotate(45deg);
   background: rgb(71, 29, 29);
   border-radius: 4px;
+  z-index: 10000;
 }
 
 .lg-toolbar .lg-close:before {
@@ -1793,6 +1791,7 @@ li:active {
           transform: rotate(-45deg);
   background: rgb(71, 29, 29);
   border-radius: 4px;
+  z-index: 10000;
 }
 
 .lg-toolbar .lg-maximize {
